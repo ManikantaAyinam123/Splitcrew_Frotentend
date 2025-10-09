@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SplitCrew - The Smart Way to Share Expenses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #a259ea;
+      --secondary: #f35eb0;
+      --gray: #f5f5f5;
+      --dark: #24292f;
+      --shadow: 0 6px 32px 0 rgba(162, 89, 234, 0.15), 0 1.5px 8px 0 rgba(243, 94, 176, 0.05);
+      --gradient: linear-gradient(94.86deg, #a259ea 3.6%, #f35eb0 113.5%);
+      
+      --gradient2: linear-gradient(180deg, #C77DFF 0%, #9D4EDD 100%);
+      --textgradient: linear-gradient(264.05deg, #FDBCEF -3.39%, #EC38BC 25.79%, #7303C0 113.3%, #03001E 113.32%)
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      background: #fff;
+      color: var(--dark);
+      min-height: 100vh;
+      line-height: 1.75;
+    }
+    .container {
+  width: 100%;
+  max-width: 1320px; /* or 1280px or your desired max content width */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;   /* some horizontal padding for small screens */
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 62px;
+      /* blur with fallback semi-transparent */
+      background: rgba(255 255 255 / 0.15);
+      backdrop-filter: blur(16px);
+      /* backdrop-filter: saturate(180%) blur(14px); */
+      /* -webkit-backdrop-filter: saturate(180%) blur(14px); */
+      /* box-shadow: var(--shadow); */
+      border-bottom: 2px solid rgba(255, 241, 255, 1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      padding: 0 32px;
+      transition: height 0.3s ease;
+    }
+    .navbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+     text-decoration: none;
+    }
+    .navbar .brand img {
+      height: 36px;
+    }
+    .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.nav-links a:not(:last-child) {
+  margin-right: 42px; /* Space only between links */
+}
+
+    .nav-links a {
+      color: #24292f;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 0;
+      transition: color 0.2s;
+      position: relative;
+      user-select: none;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+    .navbar .download-btn {
+      background: var(--gradient2);
+      
+      border-radius: 12px;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      padding: 10px 24px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.1s;
+      font-size: 1rem;
+      user-select: none;
+    }
+    .navbar .download-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 3px 16px 0 rgba(162, 89, 234, 0.21);
+    }
+    main {
+      padding-top: 72px;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 44px 2vw 40px 2vw;
+      background: #fff;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 44px;
+    }
+    .hero-content {
+      max-width: 450px;
+    }
+    .hero-content .subtitle {
+      color: var(--secondary);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+    .hero-content .title {
+      font-size: 2.3rem;
+      font-weight: bold;
+      margin: 0 0 14px 0;
+      color: #222;
+      user-select: none;
+    }
+    .hero-content .title .highlight {
+      background: var(--textgradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-content p {
+      color: #444;
+      font-size: 1.07rem;
+      margin-bottom: 30px;
+    }
+    .hero-content .download-btn {
+  background: var(--gradient2);
+  border: none;
+  color: #fff;
+  border-radius: 12px;
+  font-weight: bold;
+  padding: 12px 24px;
+  font-size: 1.07rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  box-shadow: var(--shadow);
+  transition: transform 0.1s;
+  user-select: none;
+  width: 100%;            /* Makes button stretch full width within parent */
+  max-width: 300px;       /* Adjust as needed */
+  justify-content: center;/* Text and icons center aligned */
+}
+
+@media (max-width: 700px) {
+  .hero-content .download-btn {
+    font-size: 1rem;
+    padding: 10px 15px;
+    max-width: 100%;
+    width: 100%;           /* Ensures button never overflows or gets clipped */
+    min-width: 0;
+    border-radius: 20px;
+    gap: 6px;
+  }
+  .hero-content .title {
+      font-size: 2rem;
+      font-weight: bold;
+     
+      color: #222;
+      user-select: none;
+    }
+}
+
+@media (max-width: 500px) {
+  .hero-content .download-btn {
+    padding: 9px 8px;
+    font-size: 0.94rem;
+    border-radius: 16px;
+    gap: 5px;
+  }
+}
+
+    .hero-content .download-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 3px 16px 0 rgba(243, 94, 176, 0.15);
+    }
+    .hero-img {
+      flex: 1;
+      min-width: 280px;
+      max-width: 550px;
+      text-align: center;
+    }
+
+    .hero-img img {
+      max-width: 100%;
+      height: auto;
+    }
+    /* .hero-img img {
+      max-width: 592px;
+      max-height: auto;
+    
+   
+    } */
+    .features-section {
+      /* background: var(--gray); */
+      /* padding: 55px 5vw 30px 5vw; */
+    }
+    .features-section .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #262626;
+    }
+    .section-title .highlight {
+      background: var(--textgradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .feature-card {
+  position: relative;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  padding: 30px 22px;
+  z-index: 1;
+}
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 2px; 
+  background: linear-gradient(90deg, #a259ea 0%, #f35eb0 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.download-arrow {
+  height: 20px;          /* adjust size as needed */
+  width: auto;
+  vertical-align: middle; /* aligns nicely with text */
+  padding: 0 5px;         /* space on both sides */
+}
+
+    /* .feature-card:hover {
+      border-radius: 18px;
+      border: 2px solid transparent;
+      border-image: var(--gradient2) 1;
+      box-shadow: 0 5px 24px 0 rgba(243, 93, 176, 0.2);
+      z-index: 2;
+    } */
+
+/* .feature-card:hover {
+  box-shadow: 0 5px 24px 0 rgba(243, 93, 176, 0.2);
+  border: 2px solid balck;
+  border-radius: 18px;
+} */
+    .feature-card .icon-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* background: var(--gradient2); */
+      background: rgba(255, 233, 255, 1);
+
+      color: #a259ea;
+      font-size: 1.4rem;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 18px;
+      box-shadow: 0 1px 9px 0 rgba(162, 89, 234, 0.1);
+      user-select: none;
+    }
+    .feature-card h4 {
+      font-size: 1.11rem;
+      font-weight: bold;
+      color: #232323;
+      margin: 0 0 10px;
+    }
+    .feature-card p {
+      font-size: 0.98rem;
+      color: #555;
+      margin: 0;
+    }
+    .how-section {
+      background: #fff;
+      padding: 60px 5vw 35px 5vw;
+    }
+    .how-section .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    
+      color: #282828;
+      user-select: none;
+    }
+    .how-section .highlight {
+      background: var(--textgradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 38px;
+      margin: 0 auto;
+      max-width: 960px;
+      flex-wrap: wrap;
+    }
+    .step-card {
+  background: #fafaff;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  padding: 35px 24px;
+  min-width: 240px;
+  flex: 1 1 230px;
+  text-align: center;
+  border: 2px solid transparent; /* Keep transparent default border */
+  position: relative;
+  margin-bottom: 10px;
+  /* transition: border 0.2s, box-shadow 0.2s; */
+  user-select: none;
+  overflow: visible; /* important for pseudo-element */
+  z-index: 1;
+}
+
+.step-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  padding: 2px; /* border thickness */
+  background: linear-gradient(90deg, #a259ea 0%, #f35eb0 100%);
+  box-shadow: 0px 24px 48px -12px rgba(237, 215, 255, 1);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+  z-index: 2;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.step-card:hover::before {
+  opacity: 1;
+ 
+}
+
+    .step-card .step-number {
+      background: var(--gradient2);
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.15rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      user-select: none;
+    }
+    .step-card h4 {
+      font-size: 1.13rem;
+      margin: 7px 0 12px 0;
+    }
+    .faq-section {
+      padding: 56px 5vw 38px 5vw;
+      background: #fff;
+      min-height: 420px;
+    }
+    .faq-section .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    
+      color: #222;
+      user-select: none;
+    }
+    .faq-section .highlight {
+      background: var(--textgradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .faq-list {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .faq-item {
+  position: relative;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  background: #fafafa;
+  overflow: hidden;
+  border: 2px solid transparent;
+  margin-bottom: 4px;
+  transition: border 0.25s, box-shadow 0.25s;
+  user-select: none;
+  z-index: 1;
+}
+.faq-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 2px; /* border thickness */
+  background: var(--gradient2);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+  z-index: 2;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.faq-item.open::before,
+.faq-item:hover::before {
+  opacity: 1;
+}
+
+    .faq-question {
+  cursor: pointer;
+  padding: 17px 24px 17px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #232323;
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.2s;
+  user-select: none;
+}
+.faq-question::before {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-right: 14px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.faq-item.open .faq-question::before {
+  content: "–"; 
+  background: var(--gradient2);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+    .faq-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding: 0 22px;
+      background: none;
+      font-size: 1.02rem;
+      color: #444;
+      line-height: 1.6;
+      transition: max-height 0.28s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.2s;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 160px;
+      opacity: 1;
+      padding: 12px 22px 20px 22px;
+      background: #fff;
+    }
+    .cta-section {
+      padding: 58px 5vw 45px 5vw;
+ 
+      text-align: center;
+    }
+    .cta-section .cta-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 18px;
+      color: #262626;
+      letter-spacing: 0.13px;
+      user-select: none;
+    }
+    .cta-title .highlight {
+      background: var(--textgradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cta-section .cta-btn {
+      margin-top: 28px;
+      background: var(--gradient2);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      padding: 12px 24px;
+      font-size: 1.15rem;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.12s;
+      display: inline-flex;     
+      align-items: center;       
+      justify-content: center;  
+
+   
+    }
+    .cta-section .cta-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 3px 10px 0 rgba(162, 89, 234, 0.22);
+    }
+
+
+/* Add these styles to your existing CSS */
+/* --- Footer Container --- */
+.footer {
+  background: linear-gradient(180deg, #fff 85%, #f4e1ff 100%);
+  border-radius: 15px 15px 0 0;
+  margin: 24px auto 0 auto;
+  box-shadow: 0 6px 32px 0 rgba(162, 89, 234, 0.06);
+  padding: 36px 3vw 24px 3vw;
+  border-top: 2px solid #f4d8ff;
+  max-width: 1200px;
+}
+
+/* --- Main Footer Layout --- */
+.footer-main {
+  display: flex;
+  align-items: flex-start; /* Critical: aligns all columns at the top */
+  justify-content: space-between;
+  gap: 36px;
+  width: 100%;
+}
+
+/* --- Brand Section --- */
+.footer-brand {
+  min-width: 280px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 8px 0; /* No top margin, small bottom margin */
+}
+
+.footer-logo {
+  height: 36px;
+  width: 36px;
+}
+
+.footer-title {
+  font-weight: bold;
+  font-size: 1.18rem;
+  color: #a259ea;
+  letter-spacing: 0.5px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.footer-tagline {
+  color: #616161;
+  font-size: 1rem;
+  margin: 0 0 17px 0;
+  line-height: 1.5;
+}
+
+.footer-btn {
+  margin: 0;
+  background: var(--gradient2);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  box-shadow: 0 3px 14px 0 rgba(162, 89, 234, 0.1);
+  cursor: pointer;
+  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  max-width:80%;
+}
+
+/* --- Footer Links Columns --- */
+.footer-lists {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  flex: 1;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-list h5 {
+  font-size: 1.08rem;
+  color: #502e88;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px 0; /* No top margin — aligns with .footer-title */
+  line-height: 1.2;
+  padding: 0;
+}
+
+.footer-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-list li {
+  margin: 0;
+}
+
+.footer-list a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.02rem;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer-list a:hover {
+  color: #a259ea;
+}
+
+.footer-icon {
+  color: #a259ea;
+  font-size:1.8rem;
+  margin-right: 3px;
+  
+}
+
+/* --- Footer Bottom Bar --- */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1.5px solid #eabeff36;
+  padding-top: 16px;
+  font-size: 0.96rem;
+  color: #444;
+  max-width: 1200px;
+  margin: 24px auto 0 auto;
+  user-select: none;
+}
+
+.footer-product {
+  font-weight: 400;
+
+display: flex;
+ 
+
+}
+
+.footer-product span {
+  color: var(--primary);
+  font-weight: 600;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.footer-copyright {
+  text-align: right;
+}
+
+
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .footer-lists {
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+  }
+  .footer-brand {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 22px 2vw 12px 2vw;
+    border-radius: 10px 10px 0 0;
+    max-width: 100vw;
+  }
+  
+  .footer-btn {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+    max-width:70%;
+    font-weight: 600;
+    justify-content: center;
+
+  }
+  .download-arrow {
+  height: 15px;          /* adjust size as needed */
+  width: auto;
+  vertical-align: middle; /* aligns nicely with text */
+  padding: 0 5px;         /* space on both sides */
+}
+  .footer-title {
+    font-size: 1.05rem;
+  }
+  .footer-tagline {
+    font-size: 0.95rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .footer-copyright {
+    text-align: center;
+  }
+  .cta-section .cta-btn {
+    border-radius: 12px;
+      font-weight: 600;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      display: inline-flex;     
+      align-items: center;       
+      justify-content: center;    
+   }
+   .footer-product {
+  font-weight: 400;
+flex-direction: column;
+display: flex;
+ 
+
+}
+
+.footer-product span {
+  color: var(--primary);
+  font-weight: 600;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.footer-icon {
+  color: #a259ea;
+  font-size:1.8rem;
+  margin-right: 3px;
+  
+}
+
+}
+
+    /* Back to top button */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 34px;
+      right: 35px;
+      background: var(--gradient2);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      z-index: 1001;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s;
+      font-family: inherit;
+      user-select: none;
+    }
+    #backToTop:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 5px 22px 0 rgba(243, 94, 176, 0.18);
+    }
+
+    /* Hamburger styles & responsive nav */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      width: 30px;
+      height: 24px;
+      gap: 5px;
+      user-select: none;
+    }
+    .hamburger div {
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    /* Mobile menu: slide in from right */
+/* Mobile menu hidden by default */
+
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-links.responsive {
+        display: flex;
+      }
+  
+
+      /* Mobile Menu - Slide in from right */
+      .nav-links.responsive {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;                 /* Full width for overlay effect */
+  height: 100vh;
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  flex-direction: column;
+  z-index: 1001;
+  transform: translateY(-105%);
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  overflow-y: auto;
+  display: flex;
+ 
+}
+.nav-links.responsive .brand {
+  font-size: 1.8rem;
+  gap: 8px;
+
+  display: flex;
+  color:black;
+}
+
+.nav-links.responsive.show {
+  transform: translateX(0);
+}
+
+/* Style links inside mobile menu */
+.nav-links.responsive a,
+.nav-links.responsive .download-btn {
+  padding: 12px 20px;
+  font-size: 1.15rem;
+  color: var(--primary);
+  font-weight: 700;
+  border-radius: 8px;
+  margin: 4px 0;
+  width: 100%;
+  text-align: left;
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.nav-links.responsive .download-btn {
+  background: var(--gradient2);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.nav-links.responsive a:hover,
+.nav-links.responsive a.active,
+.nav-links.responsive .download-btn:hover {
+  background: var(--gradient2);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+      .navbar {
+        padding: 12px 20px;
+        height: auto;
+        flex-wrap: nowrap;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .navbar .download-btn {
+        display: none;
+      }
+    }
+
+ 
+
+
+    /* Smaller breakpoints tweaks */
+    @media (max-width: 995px) {
+      .hero,
+      .features-grid,
+      .steps {
+        flex-direction: column;
+        display: flex;
+      }
+      /* .hero-img,
+      .hero-content {
+        max-width: 100%;
+      } */
+      /* .features-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      } */
+      .steps {
+        gap: 18px;
+      }
+      .footer-main {
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+      }
+      .footer-lists {
+        gap: 24px;
+        margin: 18px 0 0 0;
+      }
+    }
+    @media (max-width: 500px) {
+      .hero {
+        gap: 22px;
+        padding: 30px 4vw 20px 4vw;
+      }
+      .features-section,
+      .how-section,
+      .faq-section,
+      .cta-section,
+      .footer {
+        padding: 24px 3vw !important;
+      }
+      .footer-brand {
+        max-width: 98%;
+      }
+      .cta-title {
+        font-size: 1.3rem;
+      }
+      .section-title {
+        font-size: 1.27rem;
+      }
+      .feature-card,
+      .step-card {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body class="container">
+  <header class="navbar">
+    <a href="/index.html" class="brand">
+      <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew Logo" />
+      <span>SplitCrew</span>
+    </a>
+    <nav class="nav-links " id="navLinks">
+      <a href="#features" data-scroll>Features</a>
+      <a href="#how" data-scroll>How it works?</a>
+      <a href="#faq" data-scroll>FAQ's</a>
+
+      <button class="download-btn">Download Now</button>
+    </nav>
+    
+    <div class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" role="button" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+      
+      <ul class="nav-links responsive" id="mobileNav">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew Logo" />
+          <span>SplitCrew</span>
+        </a>
+        <a href="#features" data-scroll>Features</a>
+        <a href="#how" data-scroll>How it works?</a>
+        <a href="#faq" data-scroll>FAQ's</a>
+      </ul>
+    </div>
+  
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="subtitle">No more awkward money talks</div>
+        <div class="title">
+          The Smart Way to <span class="highlight">Share Expenses.</span>
+        </div>
+        <p>
+          Effortlessly split bills, track who owes what, and settle up with friends and family. Plus, chat
+          with your crew and track personal expenses, all in one place.
+        </p>
+        <button class="download-btn">
+          <span>Download on</span>
+          <img src="/assets/images/download.png"  class="download-arrow">
+          <span>Play Store</span>
+          
+        </button>
+      </div>
+      <div class="hero-img">
+        <img
+          src="/assets/images/heroimge.png"
+          onerror="this.src='https://img.icons8.com/clouds/400/000000/transaction-list.png';"
+          alt="hero illustration"
+        />
+      </div>
+    </section>
+
+    <section class="features-section" id="features">
+      <div class="section-title">
+        Features <span class="highlight">You’ll Love</span>
+      </div>
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 30px auto; color: #555;">
+        SplitCrew goes beyond simple expense splitting with tools that make managing group and personal finances
+        effortless.
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="icon-box"><span class="iconify " data-icon="material-symbols:groups"></span></div>
+          <h4>Group Expenses</h4>
+          <p>
+            SplitCrew goes beyond simple expense splitting with tools that make managing group and personal finances
+            effortless.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><span class="iconify " data-icon="material-symbols:calculate-rounded"></span></div>
+          <h4>Flexible Splitting</h4>
+          <p>
+            Split bills equally, unequally, by percentage, or by a number of shares. SplitCrew handles the math for you.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><span class="iconify " data-icon="streamline-ultimate:cash-payment-bills-bold"></span></div>
+          <h4>Settlements & Reminders</h4>
+          <p>
+            Send reminders to friends and settle debts with a single tap from within the app, streamlining the process.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><span class="iconify " data-icon="fluent:chat-multiple-32-filled"></span></div>
+          <h4>Group Chat</h4>
+          <p>
+            No more juggling apps. Use the built-in group chat to discuss expenses and send reminders to your friends to
+            settle up.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><span class="iconify " data-icon="fluent:chart-multiple-24-filled"></span></div>
+          <h4>Export Reports</h4>
+          <p>Easily export and share comprehensive reports to get a full overview of your group's spending.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><span class="iconify " data-icon="fluent:notepad-person-24-filled"></span></div>
+          <h4>Personal Expenses</h4>
+          <p>
+            Keep track of your own spending and stay on top of your budget with a dedicated personal expenses logging.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section" id="how">
+      <div class="section-title">
+        How it <span class="highlight">Works?</span>
+      </div>
+      <div style="text-align: center; max-width: 570px; margin: 0 auto 30px auto; color: #666;">
+        Get started in three simple, intuitive steps.
+      </div>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h4>Create a Group</h4>
+          <div>
+            Start a group for any occasion, from a weekend trip to a shared apartment by adding people from your
+            contacts.
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h4>Add an Expense</h4>
+          <div>
+            Easily log a new expense. Choose participants, set the amount, who paid and select how to split it.
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h4>Settle Up</h4>
+          <div>
+            SplitCrew calculates who owes whom. Settle up quickly and view your balance with others.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="section-title">
+        Frequently Asked <span class="highlight">Questions?</span>
+      </div>
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 18px auto; color: #666;">
+        Find quick answers to common questions about SplitCrew.
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">How does SplitCrew split expenses?</button>
+          <div class="faq-answer">
+            SplitCrew allows you to split expenses equally, unequally, by shares or percentages. You can include or exclude
+            people in specific expenses, making it flexible for all scenarios.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I track my personal expenses?</button>
+          <div class="faq-answer">
+            Yes, you can log personal expenses separately, so your solo spending is tracked alongside group payments.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Are reports exportable?</button>
+          <div class="faq-answer">
+            Absolutely! Export detailed reports as PDFs or spreadsheets to get a comprehensive view of your finances.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Does SplitCrew have reminders?</button>
+          <div class="faq-answer">Yes, automatic reminders help keep the group on track to settle up quickly and easily.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Is group chat available in-app?</button>
+          <div class="faq-answer">
+            A built-in chat lets participants discuss costs right inside SplitCrew. No more juggling messaging apps for money
+            talk.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">What platforms is SplitCrew available on?</button>
+          <div class="faq-answer">Currently on Android. iOS version is coming soon!</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-title">Ready to simplify your <span class="highlight">Finances?</span></div>
+      <div style="color: #555; max-width: 550px; margin: 0 auto 18px auto;">
+        Join thousands of users who trust our app for seamless expense management.
+      </div>
+      <button class="cta-btn">
+        Download on
+       
+        <span class="iconify footer-icon" data-icon=" mage:playstore"></span>
+        <img src="/assets/images/download.png"  class="download-arrow">
+        Play Store
+      </button>
+    </section>
+  </main>
+  <button id="backToTop" title="Back to top">↑</button>
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew" class="footer-logo" />
+          <span class="footer-title">SplitCrew</span>
+        </div>
+        <div class="footer-tagline">
+          Simplifying group expenses and personal finance, one split at a time.
+        </div>
+        <button class="footer-btn">
+          Download on 
+          <img src="/assets/images/download.png"  class="download-arrow"> Play Store
+        </button>
+      </div>
+      <div class="footer-lists">
+        <div class="footer-list">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="#features" data-scroll>Features</a></li>
+            <li><a href="#how" data-scroll>How it Works?</a></li>
+            <li><a href="#faq" data-scroll>FAQ's</a></li>
+          </ul>
+        </div>
+        <div class="footer-list">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacypolicy">Terms &amp; Conditions</a></li>
+            <li><a href="/privacypolicy#privacy">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-list footer-connect">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="mailto:contact@actimize.in"> <span class="iconify footer-icon" data-icon="icomoon-free:mail4"></span> contact@actimize.in</a></li>
+            <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:linkedin-with-circle"></span> LinkedIn</a></li>
+            <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:instagram-with-circle"></span> Instagram</a></li>
+            <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:facebook-with-circle"></span> Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <div class="footer-product">
+        A Product of 
+        <span>
+        <img src="/assets/images/actimizelogo.png" alt="Actimize Logo" style="height:18px;">
+        <span>Actimize Software Solutions</span>
+        </span>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2025 Actimize Software Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  
+  
+
+  <script>
+    // Navbar scrolling
+    document.querySelectorAll('[data-scroll]').forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        let target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 58,
+            behavior: "smooth",
+          });
+          // close nav if on mobile
+          if (window.innerWidth <= 700) {
+            navLinks.classList.remove("show");
+          }
+        }
+      });
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
+    window.onscroll = function () {
+      if (window.scrollY > 300) {
+        backToTop.style.display = "flex";
+      } else {
+        backToTop.style.display = "none";
+      }
+    };
+    backToTop.onclick = function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    // FAQ Accordions
+    document.querySelectorAll(".faq-question").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        let item = this.closest(".faq-item");
+        item.classList.toggle("open");
+        if (item.classList.contains("open")) {
+          item.querySelector(".faq-answer").style.maxHeight =
+            item.querySelector(".faq-answer").scrollHeight + 40 + "px";
+        } else {
+          item.querySelector(".faq-answer").style.maxHeight = "0px";
+        }
+      });
+      btn.addEventListener("keyup", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          this.click();
+        }
+      });
+    });
+
+    // Highlight active nav link on scroll
+    window.addEventListener("scroll", () => {
+      const sections = ["features", "how", "faq"];
+      let current = "";
+      const scrollY = window.pageYOffset + 100;
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section && section.offsetTop <= scrollY) {
+          current = id;
+        }
+      });
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+    // Hamburger toggle for mobile menu
+    document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const navLinks = document.getElementById("mobileNav"); // ← This is your mobile menu
+    const menuBackdrop = document.getElementById("menuBackdrop");
+
+    hamburgerBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      menuBackdrop.classList.toggle("show");
+      hamburgerBtn.classList.toggle("active");
+    });
+
+    menuBackdrop.addEventListener("click", () => {
+      navLinks.classList.remove("show");
+      menuBackdrop.classList.remove("show");
+      hamburgerBtn.classList.remove("active");
+    });
+  });
+  </script>
+</body>
+</html>

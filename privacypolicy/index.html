@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Legal - SplitCrew</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #a259ea;
+      --secondary: #f35eb0;
+      --gray: #f5f5f5;
+      --dark: #24292f;
+      --shadow: 0 6px 32px 0 rgba(162, 89, 234, 0.15), 0 1.5px 8px 0 rgba(243, 94, 176, 0.05);
+      --gradient: linear-gradient(94.86deg, #a259ea 3.6%, #f35eb0 113.5%);
+      --gradient2: linear-gradient(180deg, #C77DFF 0%, #9D4EDD 100%);
+      --textgradient: linear-gradient(264.05deg, #FDBCEF -3.39%, #EC38BC 25.79%, #7303C0 113.3%, #03001E 113.32%)
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      background: #fff;
+      color: var(--dark);
+      min-height: 100vh;
+      line-height: 1.75;
+    }
+    .container {
+      width: 100%;
+      max-width: 1320px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      box-sizing: border-box;
+    }
+
+    /* --- Navbar Styles (Same as index.html) --- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 62px;
+      background: rgba(255 255 255 / 0.15);
+      backdrop-filter: blur(16px);
+      border-bottom: 2px solid rgba(255, 241, 255, 1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      padding: 0 32px;
+      transition: height 0.3s ease;
+    }
+    .navbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      text-decoration: none;
+
+    }
+    .navbar .brand img {
+      height: 36px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .nav-links a:not(:last-child) {
+      margin-right: 42px;
+    }
+    .nav-links a {
+      color: #24292f;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 0;
+      transition: color 0.2s;
+      position: relative;
+      user-select: none;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+    .navbar .download-btn {
+      background: var(--gradient2);
+      border-radius: 12px;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      padding: 10px 24px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.1s;
+      font-size: 1rem;
+      user-select: none;
+    }
+    .navbar .download-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 3px 16px 0 rgba(162, 89, 234, 0.21);
+    }
+
+    /* --- Main Content Area --- */
+    main {
+      /* padding-top: 72px; */
+      padding: 80px 5vw;
+    }
+
+    /* --- Tab Navigation --- */
+    .tabs {
+      /* display: flex; */
+      
+      border-bottom: 2px solid #f0e6ff;
+      margin-bottom: 30px;
+      gap: 20px;
+
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #666;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+      user-select: none;
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    .tab-btn:hover {
+      color: var(--secondary);
+    }
+
+    /* Stack tabs vertically on small screens */
+@media (max-width: 600px) {
+  .tabs {
+    display: flex;
+    
+    border-bottom: 2px solid #f0e6ff;
+      margin-bottom: 10px;
+   
+     
+
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      /* padding: 15px 30px; */
+      /* font-size: 0.8rem;
+      font-weight: 600; */
+      font-size: 14px;
+      color: #666;
+      cursor: pointer;
+      /* position: relative; */
+      transition: color 0.2s;
+      user-select: none;
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+}
+
+    /* --- Tab Content --- */
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    /* --- Terms/Privacy Page Specific Styles --- */
+    .terms-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 2px solid #f0e6ff;
+    /* padding-bottom: 10px; */
+    /* margin-bottom: 20px; */
+   
+  }
+    .terms-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      /* font-size: 1px; */
+      /* font-weight: bold; */
+      color: #24292f;
+    }
+    .last-updated {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* .table-of-contents {
+      margin: 30px 0;
+    } */
+    .table-of-contents h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #24292f;
+    }
+    .table-of-contents ol {
+      list-style-type: decimal;
+      padding-left: 20px;
+      margin: 0;
+    }
+    .table-of-contents li {
+      margin: 8px 0;
+    }
+    .table-of-contents a {
+      color: #a259ea;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .table-of-contents a:hover {
+      color: #f35eb0;
+    }
+
+    .section {
+      margin: 40px 0;
+    }
+    .section h2 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #24292f;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #f0e6ff;
+      padding-bottom: 10px;
+    }
+    .section p {
+      line-height: 1.7;
+      color: #444;
+      margin: 15px 0;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 34px;
+      right: 35px;
+      background: var(--gradient2);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      z-index: 1001;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s;
+      user-select: none;
+    }
+    .back-to-top:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 5px 22px 0 rgba(243, 94, 176, 0.18);
+    }
+
+    /* --- Footer Styles (Same as index.html) --- */
+    .footer {
+  background: linear-gradient(180deg, #fff 85%, #f4e1ff 100%);
+  border-radius: 15px 15px 0 0;
+  margin: 24px auto 0 auto;
+  box-shadow: 0 6px 32px 0 rgba(162, 89, 234, 0.06);
+  padding: 36px 3vw 24px 3vw;
+  border-top: 2px solid #f4d8ff;
+  max-width: 1200px;
+}
+
+/* --- Main Footer Layout --- */
+.footer-main {
+  display: flex;
+  align-items: flex-start; /* Critical: aligns all columns at the top */
+  justify-content: space-between;
+  gap: 36px;
+  width: 100%;
+}
+
+/* --- Brand Section --- */
+.footer-brand {
+  min-width: 280px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 8px 0; /* No top margin, small bottom margin */
+}
+
+.footer-logo {
+  height: 36px;
+  width: 36px;
+}
+
+.footer-title {
+  font-weight: bold;
+  font-size: 1.18rem;
+  color: #a259ea;
+  letter-spacing: 0.5px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.footer-tagline {
+  color: #616161;
+  font-size: 1rem;
+  margin: 0 0 17px 0;
+  line-height: 1.5;
+}
+
+.footer-btn {
+  margin: 0;
+  background: var(--gradient2);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  box-shadow: 0 3px 14px 0 rgba(162, 89, 234, 0.1);
+  cursor: pointer;
+  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  max-width:80%;
+}
+
+.download-arrow {
+  height: 20px;          /* adjust size as needed */
+  width: auto;
+  vertical-align: middle; /* aligns nicely with text */
+  padding: 0 5px;         /* space on both sides */
+}
+
+/* --- Footer Links Columns --- */
+.footer-lists {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  flex: 1;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-list h5 {
+  font-size: 1.08rem;
+  color: #502e88;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px 0; /* No top margin — aligns with .footer-title */
+  line-height: 1.2;
+  padding: 0;
+}
+
+.footer-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-list li {
+  margin: 0;
+}
+
+.footer-list a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.02rem;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer-list a:hover {
+  color: #a259ea;
+}
+
+.footer-icon {
+  color: #a259ea;
+  font-size:1.8rem;
+  margin-right: 3px;
+  
+}
+
+/* --- Footer Bottom Bar --- */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1.5px solid #eabeff36;
+  padding-top: 16px;
+  font-size: 0.96rem;
+  color: #444;
+  max-width: 1200px;
+  margin: 24px auto 0 auto;
+  user-select: none;
+}
+
+.footer-product {
+  font-weight: 400;
+
+display: flex;
+ 
+
+}
+
+.footer-product span {
+  color: var(--primary);
+  font-weight: 600;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.footer-copyright {
+  text-align: right;
+}
+
+
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .footer-lists {
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+  }
+  .footer-brand {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 22px 2vw 12px 2vw;
+    border-radius: 10px 10px 0 0;
+    max-width: 100vw;
+  }
+  
+  .footer-btn {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+    max-width:70%;
+    font-weight: 600;
+    justify-content: center;
+
+  }
+  .download-arrow {
+  height: 15px;          /* adjust size as needed */
+  width: auto;
+  vertical-align: middle; /* aligns nicely with text */
+  padding: 0 5px;         /* space on both sides */
+}
+  .footer-title {
+    font-size: 1.05rem;
+  }
+  .footer-tagline {
+    font-size: 0.95rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .footer-copyright {
+    text-align: center;
+  }
+  .cta-section .cta-btn {
+    border-radius: 12px;
+      font-weight: 600;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      display: inline-flex;     
+      align-items: center;       
+      justify-content: center;    
+   }
+   .footer-product {
+  font-weight: 400;
+flex-direction: column;
+display: flex;
+ 
+
+}
+
+.footer-product span {
+  color: var(--primary);
+  font-weight: 600;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.footer-icon {
+  color: #a259ea;
+  font-size:1.8rem;
+  margin-right: 3px;
+  
+}
+
+}
+
+    /* Back to top button */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 34px;
+      right: 35px;
+      background: var(--gradient2);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      z-index: 1001;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s;
+      font-family: inherit;
+      user-select: none;
+    }
+    #backToTop:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 5px 22px 0 rgba(243, 94, 176, 0.18);
+    }
+
+    /* Hamburger styles & responsive nav */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      width: 30px;
+      height: 24px;
+      gap: 5px;
+      user-select: none;
+    }
+    .hamburger div {
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    /* Mobile menu: slide in from right */
+/* Mobile menu hidden by default */
+
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-links.responsive {
+        display: flex;
+      }
+  
+
+      /* Mobile Menu - Slide in from right */
+      .nav-links.responsive {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;                 /* Full width for overlay effect */
+  height: 100vh;
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  flex-direction: column;
+  z-index: 1001;
+  transform: translateY(-105%);
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  overflow-y: auto;
+  display: flex;
+ 
+}
+.nav-links.responsive .brand {
+  font-size: 1.8rem;
+  gap: 8px;
+
+  display: flex;
+  color:black;
+}
+
+.nav-links.responsive.show {
+  transform: translateX(0);
+}
+
+/* Style links inside mobile menu */
+.nav-links.responsive a,
+.nav-links.responsive .download-btn {
+  padding: 12px 20px;
+  font-size: 1.15rem;
+  color: var(--primary);
+  font-weight: 700;
+  border-radius: 8px;
+  margin: 4px 0;
+  width: 100%;
+  text-align: left;
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.nav-links.responsive .download-btn {
+  background: var(--gradient2);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.nav-links.responsive a:hover,
+.nav-links.responsive a.active,
+.nav-links.responsive .download-btn:hover {
+  background: var(--gradient2);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+      .navbar {
+        padding: 12px 20px;
+        height: auto;
+        flex-wrap: nowrap;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .navbar .download-btn {
+        display: none;
+      }
+    }
+
+ 
+
+
+    /* Smaller breakpoints tweaks */
+    @media (max-width: 995px) {
+      .hero,
+      .features-grid,
+      .steps {
+        flex-direction: column;
+        display: flex;
+      }
+      /* .hero-img,
+      .hero-content {
+        max-width: 100%;
+      } */
+      /* .features-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      } */
+      .steps {
+        gap: 18px;
+      }
+      .footer-main {
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+      }
+      .footer-lists {
+        gap: 24px;
+        margin: 18px 0 0 0;
+      }
+    }
+    @media (max-width: 500px) {
+      .hero {
+        gap: 22px;
+        padding: 30px 4vw 20px 4vw;
+      }
+      .features-section,
+      .how-section,
+      .faq-section,
+      .cta-section,
+      .footer {
+        padding: 24px 3vw !important;
+      }
+      .footer-brand {
+        max-width: 98%;
+      }
+      .cta-title {
+        font-size: 1.3rem;
+      }
+      .section-title {
+        font-size: 1.27rem;
+      }
+      .feature-card,
+      .step-card {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body class="container">
+  <!-- Reuse Navbar -->
+  <header class="navbar">
+    <a href="/index.html" class="brand">
+      <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew Logo" />
+      <span>SplitCrew</span>
+    </a>
+    <nav class="nav-links " id="navLinks">
+      <a href="/index.html#features" data-scroll>Features</a>
+      <a href="/index.html#how" data-scroll>How it works?</a>
+      <a href="/index.html#faq" data-scroll>FAQ's</a>
+
+      <button class="download-btn">Download Now</button>
+    </nav>
+    
+    <div class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" role="button" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+      
+      <ul class="nav-links responsive" id="mobileNav">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew Logo" />
+          <span>SplitCrew</span>
+        </a>
+        <a href="/index.html" data-scroll>Features</a>
+        <a href="/index.html#how" data-scroll>How it works?</a>
+        <a href="/index.html#faq" data-scroll>FAQ's</a>
+      </ul>
+    </div>
+  
+  </header>
+
+  <!-- Main Content with Tabs -->
+  <main>
+    <!-- Tab Navigation -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
+      <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+    </div>
+
+    <!-- Terms Content -->
+    <div id="terms-content" class="tab-content active">
+      <div class="terms-header">
+        <span class="terms-title">Terms & Conditions</span>
+        <span class="last-updated">Last updated: 08/10/2025</span>
+      </div>
+
+      <div class="table-of-contents">
+        <h3>Table of Contents:</h3>
+        <ol>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#acceptance">Acceptance of Terms</a></li>
+          <li><a href="#user-accounts">User Accounts</a></li>
+          <li><a href="#use-of-app">Use of the App</a></li>
+          <li><a href="#intellectual-property">Intellectual Property</a></li>
+          <li><a href="#termination">Termination</a></li>
+          <li><a href="#limitation-liability">Limitation of Liability</a></li>
+          <li><a href="#third-party-links">Third-Party Links</a></li>
+          <li><a href="#changes-to-terms">Changes to Terms</a></li>
+          <li><a href="#contact-us">Contact Us</a></li>
+        </ol>
+      </div>
+
+      <div class="section" id="introduction">
+        <h2>1. Introduction</h2>
+        <p>Welcome to SplitCrew! These Terms and Conditions (“Terms”) govern your use of our mobile application (“App”). By accessing or using the App, you agree to be bound by these Terms.</p>
+      </div>
+
+      <div class="section" id="acceptance">
+        <h2>2. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using the App, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, please uninstall and discontinue use.</p>
+      </div>
+
+      <div class="section" id="user-accounts">
+        <h2>3. User Accounts</h2>
+        <p>To access certain features, you may be required to create an account. You are responsible for maintaining the confidentiality of your account and password and for all activities that occur under your account.</p>
+      </div>
+
+      <div class="section" id="use-of-app">
+        <h2>4. Use of the App</h2>
+        <p>You agree to use the App only for lawful purposes and in accordance with these Terms. You may not use the App to engage in any harmful, illegal, or unauthorized activity.</p>
+      </div>
+
+      <div class="section" id="intellectual-property">
+        <h2>5. Intellectual Property</h2>
+        <p>All content, trademarks, and intellectual property within the App are owned by SplitCrew or its licensors. You may not copy, reproduce, or distribute any part of the App without our permission.</p>
+      </div>
+
+      <div class="section" id="termination">
+        <h2>6. Termination</h2>
+        <p>We may suspend or terminate your access to the App at any time, without prior notice or liability, for any reason whatsoever, including if you breach the Terms.</p>
+      </div>
+
+      <div class="section" id="limitation-liability">
+        <h2>7. Limitation of Liability</h2>
+        <p>SplitCrew is provided “as is” and without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. In no event shall we be liable for any damages arising from your use of the App.</p>
+      </div>
+
+      <div class="section" id="third-party-links">
+        <h2>8. Third-Party Links</h2>
+        <p>The App may contain links to third-party websites or services that are not owned or controlled by SplitCrew. We are not responsible for the content, privacy policies, or practices of any third-party sites.</p>
+      </div>
+
+      <div class="section" id="changes-to-terms">
+        <h2>9. Changes to Terms</h2>
+        <p>We reserve the right to update or modify these Terms at any time. Continued use of the App after changes are posted constitutes your acceptance of the revised Terms.</p>
+      </div>
+
+      <div class="section" id="contact-us">
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions or concerns about these Terms, please contact us at <a href="mailto:contact@actimize.in">contact@actimize.in</a></p>
+      </div>
+    </div>
+
+    <!-- Privacy Policy Content -->
+    <div id="privacy-content" class="tab-content">
+      <div class="terms-header">
+        <span class="terms-title">Privacy Policy</span>
+        <span class="last-updated">Last updated: 08/10/2025</span>
+      </div>
+
+      <div class="table-of-contents">
+        <h3>Table of Contents:</h3>
+        <ol>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#accept">Acceptance of Terms</a></li>
+          <li><a href="#user">User Accounts</a></li>
+          <li><a href="#use">Use of the App</a></li>
+          <li><a href="#intellectual">Intellectual Property</a></li>
+          <li><a href="#termination">Termination</a></li>
+          <li><a href="#limitation">Limitation of Liability</a></li>
+          <li><a href="#third-party">Third-Party Links</a></li>
+          <li><a href="#changes">Changes to Terms</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ol>
+      </div>
+
+      <div class="section" id="intro">
+        <h2>1. Introduction</h2>
+        <p>Welcome to SplitCrew! These Terms and Conditions (“Terms”) govern your use of our mobile application (“App”). By accessing or using the App, you agree to be bound by these Terms.</p>
+      </div>
+
+      <div class="section" id="accept">
+        <h2>2. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using the App, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, please uninstall and discontinue use.</p>
+      </div>
+
+      <div class="section" id="user">
+        <h2>3. User Accounts</h2>
+        <p>To access certain features, you may be required to create an account. You are responsible for maintaining the confidentiality of your account and password and for all activities that occur under your account.</p>
+      </div>
+
+      <div class="section" id="use">
+        <h2>4. Use of the App</h2>
+        <p>You agree to use the App only for lawful purposes and in accordance with these Terms. You may not use the App to engage in any harmful, illegal, or unauthorized activity.</p>
+      </div>
+
+      <div class="section" id="intellectual">
+        <h2>5. Intellectual Property</h2>
+        <p>All content, trademarks, and intellectual property within the App are owned by SplitCrew or its licensors. You may not copy, reproduce, or distribute any part of the App without our permission.</p>
+      </div>
+
+      <div class="section" id="termination">
+        <h2>6. Termination</h2>
+        <p>We may suspend or terminate your access to the App at any time, without prior notice or liability, for any reason whatsoever, including if you breach the Terms.</p>
+      </div>
+
+      <div class="section" id="limitation">
+        <h2>7. Limitation of Liability</h2>
+        <p>SplitCrew is provided “as is” and without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. In no event shall we be liable for any damages arising from your use of the App.</p>
+      </div>
+
+      <div class="section" id="third-party">
+        <h2>8. Third-Party Links</h2>
+        <p>The App may contain links to third-party websites or services that are not owned or controlled by SplitCrew. We are not responsible for the content, privacy policies, or practices of any third-party sites.</p>
+      </div>
+
+      <div class="section" id="changes">
+        <h2>9. Changes to Terms</h2>
+        <p>We reserve the right to update or modify these Terms at any time. Continued use of the App after changes are posted constitutes your acceptance of the revised Terms.</p>
+      </div>
+
+      <div class="section" id="contact">
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions or concerns about these Terms, please contact us at <a href="mailto:contact@actimize.in">contact@actimize.in</a></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">↑</button>
+
+  <!-- Reuse Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew" class="footer-logo" />
+          <span class="footer-title">SplitCrew</span>
+        </div>
+        <div class="footer-tagline">
+          Simplifying group expenses and personal finance, one split at a time.
+        </div>
+        <button class="footer-btn">
+          Download on 
+          <img src="/assets/images/download.png"  class="download-arrow"> Play Store
+        </button>
+      </div>
+      <div class="footer-lists">
+        <div class="footer-list">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="#features" data-scroll>Features</a></li>
+            <li><a href="#how" data-scroll>How it Works?</a></li>
+            <li><a href="#faq" data-scroll>FAQ's</a></li>
+          </ul>
+        </div>
+        <div class="footer-list">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacypolicy">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-list footer-connect">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="mailto:contact@actimize.in"> <span class="iconify footer-icon" data-icon="icomoon-free:mail4"></span> contact@actimize.in</a></li>
+            <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:linkedin-with-circle"></span> LinkedIn</a></li>
+            <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:instagram-with-circle"></span> Instagram</a></li>
+            <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:facebook-with-circle"></span> Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <div class="footer-product">
+        A Product of 
+        <span>
+        <img src="/assets/images/actimizelogo.png" alt="Actimize Logo" style="height:18px;">
+        <span>Actimize Software Solutions</span>
+        </span>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2025 Actimize Software Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Highlight current page in nav
+      const currentPath = window.location.pathname.split('/').pop();
+      if (currentPath === 'terms.html') {
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.classList.remove('active');
+        });
+      }
+
+      // Tab switching logic
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      function switchTab(tabName) {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+        document.getElementById(`${tabName}-content`).classList.add('active');
+      }
+
+      // Add click listeners
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabName = button.getAttribute('data-tab');
+          switchTab(tabName);
+          // Update URL hash for deep linking
+          history.pushState(null, null, `#${tabName}`);
+        });
+      });
+
+      // Handle initial page load with hash
+      const hash = window.location.hash.substring(1); // remove '#'
+      if (hash === 'privacy') {
+        switchTab('privacy');
+        } else {
+          switchTab('terms');
+        }
+
+      // Handle browser back/forward
+      window.addEventListener('popstate', () => {
+        const hash = window.location.hash.substring(1);
+        if (hash === 'privacy') {
+          switchTab('privacy');
+        } else {
+          switchTab('terms');
+        }
+      });
+    });
+      // Force navigation for product links (in case of weird behavior)
+  document.querySelectorAll('.nav-links a, .footer-list a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('index.html')) {
+      link.addEventListener('click', function(e) {
+        // Let the browser handle it normally — do NOT preventDefault!
+        // But ensure it's treated as a full navigation
+        window.location.href = href;
+      });
+    }
+  });
+
+    // Smooth scroll for TOC and footer links with offset
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href').substring(1);
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      e.preventDefault();
+      const y = targetEl.getBoundingClientRect().top + window.pageYOffset - 80; // ← offset -50px
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//   anchor.addEventListener('click', function(e) {
+//     const targetId = this.getAttribute('href').substring(1);
+//     const targetEl = document.getElementById(targetId);
+//     if (targetEl) {
+//       e.preventDefault();
+//       const y = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
+//       window.scrollTo({ top: y, behavior: 'smooth' });
+//     }
+//     // If targetEl does not exist, do not preventDefault
+//   });
+// });
+
+
+
+    // Scroll to section on click
+    // document.querySelectorAll('[data-scroll]').forEach((link) => {
+    //   link.addEventListener("click", function (e) {
+    //     e.preventDefault();
+    //     let target = document.querySelector(this.getAttribute("href"));
+    //     if (target) {
+    //       window.scrollTo({
+    //         top: target.offsetTop - 70,
+    //         behavior: "smooth",
+    //       });
+    //       // close nav if on mobile
+    //       if (window.innerWidth <= 700) {
+    //         navLinks.classList.remove("show");
+    //       }
+    //     }
+    //   });
+    // });
+
+      // Hamburger toggle for mobile menu
+      document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const navLinks = document.getElementById("mobileNav"); // ← This is your mobile menu
+    const menuBackdrop = document.getElementById("menuBackdrop");
+
+    hamburgerBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      menuBackdrop.classList.toggle("show");
+      hamburgerBtn.classList.toggle("active");
+    });
+
+    menuBackdrop.addEventListener("click", () => {
+      navLinks.classList.remove("show");
+      menuBackdrop.classList.remove("show");
+      hamburgerBtn.classList.remove("active");
+    });
+  });
+  </script>
+</body>
+</html>

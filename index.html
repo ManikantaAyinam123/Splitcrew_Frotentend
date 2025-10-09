@@ -110,7 +110,7 @@
       cursor: pointer;
       transition: transform 0.1s;
       font-size: 1rem;
-      user-select: none;
+     text-decoration: none;
     }
     .navbar .download-btn:hover {
       transform: translateY(-2px) scale(1.04);
@@ -168,13 +168,16 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-
+  text-decoration: none;
   box-shadow: var(--shadow);
   transition: transform 0.1s;
   user-select: none;
   width: 100%;            /* Makes button stretch full width within parent */
   max-width: 300px;       /* Adjust as needed */
   justify-content: center;/* Text and icons center aligned */
+}
+.hero-content a {
+  text-decoration: none;
 }
 
 @media (max-width: 700px) {
@@ -186,6 +189,7 @@
     min-width: 0;
     border-radius: 20px;
     gap: 6px;
+    text-decoration: none;
   }
   .hero-content .title {
       font-size: 2rem;
@@ -1033,7 +1037,9 @@ display: flex;
       <a href="#how" data-scroll>How it works?</a>
       <a href="#faq" data-scroll>FAQ's</a>
 
-      <button class="download-btn">Download Now</button>
+      <a href="https://play.google.com/apps/test/RQ5xPrHG28Y/ahAO29uNQRhtrGu1fjRbtO9xDYViRCL2Hf_gMhGaeK0B9txVeNw5piXvbbsrS4Pi9Y4qciKUSGq9i779-qRKRGKxtW" target="_blank" rel="noopener noreferrer">
+        <button class="download-btn">Download Now</button>
+      </a>
     </nav>
     
     <div class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" role="button" tabindex="0">
@@ -1064,12 +1070,13 @@ display: flex;
           Effortlessly split bills, track who owes what, and settle up with friends and family. Plus, chat
           with your crew and track personal expenses, all in one place.
         </p>
+        <a href="https://play.google.com/apps/test/RQ5xPrHG28Y/ahAO29uNQRhtrGu1fjRbtO9xDYViRCL2Hf_gMhGaeK0B9txVeNw5piXvbbsrS4Pi9Y4qciKUSGq9i779-qRKRGKxtW" target="_blank" rel="noopener noreferrer">
         <button class="download-btn">
           <span>Download on</span>
           <img src="/assets/images/download.png"  class="download-arrow">
           <span>Play Store</span>
-          
         </button>
+        </a>
       </div>
       <div class="hero-img">
         <img
@@ -1217,6 +1224,7 @@ display: flex;
       <div style="color: #555; max-width: 550px; margin: 0 auto 18px auto;">
         Join thousands of users who trust our app for seamless expense management.
       </div>
+      <a href="https://play.google.com/apps/test/RQ5xPrHG28Y/ahAO29uNQRhtrGu1fjRbtO9xDYViRCL2Hf_gMhGaeK0B9txVeNw5piXvbbsrS4Pi9Y4qciKUSGq9i779-qRKRGKxtW" target="_blank" rel="noopener noreferrer">
       <button class="cta-btn">
         Download on
        
@@ -1224,6 +1232,7 @@ display: flex;
         <img src="/assets/images/download.png"  class="download-arrow">
         Play Store
       </button>
+      </a>
     </section>
   </main>
   <button id="backToTop" title="Back to top">↑</button>
@@ -1237,10 +1246,12 @@ display: flex;
         <div class="footer-tagline">
           Simplifying group expenses and personal finance, one split at a time.
         </div>
+        <a href="https://play.google.com/apps/test/RQ5xPrHG28Y/ahAO29uNQRhtrGu1fjRbtO9xDYViRCL2Hf_gMhGaeK0B9txVeNw5piXvbbsrS4Pi9Y4qciKUSGq9i779-qRKRGKxtW" target="_blank" rel="noopener noreferrer">
         <button class="footer-btn">
           Download on 
           <img src="/assets/images/download.png"  class="download-arrow"> Play Store
         </button>
+        </a>
       </div>
       <div class="footer-lists">
         <div class="footer-list">

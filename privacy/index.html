@@ -253,7 +253,7 @@
       position: fixed;
       bottom: 34px;
       right: 35px;
-      background: var(--gradient2);
+      background:rgba(231, 200, 248, 1);
       color: #fff;
       border: none;
       border-radius: 50%;
@@ -268,6 +268,30 @@
       justify-content: center;
       transition: transform 0.15s;
       user-select: none;
+    }
+    #backToTop {
+      background:rgba(231, 200, 248, 1);
+      
+      display: none;
+      position: fixed;
+      bottom: 34px;
+      right: 35px;
+      /* background: var(--gradient2); */
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      z-index: 1001;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s;
+      font-family: inherit;
+      user-select: none;
+      /* border: 2px solid var(--primary); */
     }
     .back-to-top:hover {
       transform: translateY(-3px) scale(1.06);
@@ -956,7 +980,7 @@ display: flex;
   </main>
 
   <!-- Back to Top Button -->
-  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">↑</button>
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top"> <img src="/assets/images/backtotop.svg" ></button>
 
   <!-- Reuse Footer -->
   <footer class="footer">

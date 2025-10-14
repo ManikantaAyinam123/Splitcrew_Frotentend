@@ -843,11 +843,13 @@ display: flex;
 
     /* Back to top button */
     #backToTop {
+      background:rgba(231, 200, 248, 1);
+      
       display: none;
       position: fixed;
       bottom: 34px;
       right: 35px;
-      background: var(--gradient2);
+      /* background: var(--gradient2); */
       color: #fff;
       border: none;
       border-radius: 50%;
@@ -862,6 +864,7 @@ display: flex;
       transition: transform 0.15s;
       font-family: inherit;
       user-select: none;
+      /* border: 2px solid var(--primary); */
     }
     #backToTop:hover {
       transform: translateY(-3px) scale(1.06);
@@ -1238,7 +1241,7 @@ display: flex;
           <button class="faq-question" tabindex="0">What types of groups can I make?</button>
           <div class="faq-answer">You can create groups for Home, Trip, Couple, Friends, Party or others</div>
         </div>
-        <div class="faq-item">
+        <!-- <div class="faq-item">
           <button class="faq-question" tabindex="0">Can I add or remove members later?</button>
           <div class="faq-answer">Yes, admins can add or remove members anytime.</div>
         </div>
@@ -1253,6 +1256,84 @@ display: flex;
         <div class="faq-item">
           <button class="faq-question" tabindex="0">How do I add an expense?</button>
           <div class="faq-answer">To add an expense, go to a group, tap Add a New Expense, select participants, enter the price, date, title, type, payer, split method, and an optional note, then tap Save Expense.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">What ways can I split expenses?</button>
+          <div class="faq-answer">You can split an expense equally, unequally, by percentage, or by shares among the participants.</div>
+        </div> -->
+        
+        <!-- <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I edit or delete an expense later?</button>
+          <div class="faq-answer">Yes, expenses can be updated or removed by the person who added them.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I add personal expenses?</button>
+          <div class="faq-answer">Yes, you can track private expenses in Personal expenses from your profile tab.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">How do settlements work?</button>
+          <div class="faq-answer">SplitCrew calculates the simplest way to settle debts. The Settlements tab shows who owes whom. Then click on settle and record how much amount was paid.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I send reminders to friends?</button>
+          <div class="faq-answer">Yes, you can send payment reminders from settlement tab in a group.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I settle partially?</button>
+          <div class="faq-answer">Yes, you can record partial payments until the full balance is cleared.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Is chat available in SplitCrew?</button>
+          <div class="faq-answer">Yes, each group has its own chat where all members can communicate.</div>
+        </div> -->
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I export group reports?</button>
+          <div class="faq-answer">Yes, export group reports as PDF for a timeline of your choice.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">What data do the reports include?</button>
+          <div class="faq-answer">The reports include all expenses, settlements, and each person’s spending within the selected timeline.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I filter reports by date?</button>
+          <div class="faq-answer">Yes, choose a desired timeline to filter the reports.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Do group reports include personal expenses?</button>
+          <div class="faq-answer">No, group reports only include shared expenses within that group. Personal expenses are tracked separately in your profile.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Is my data private?</button>
+          <div class="faq-answer">Yes, all your data is securely stored in the cloud.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I back up my data?</button>
+          <div class="faq-answer">Yes, since data is stored online, it's automatically backed up and synced across devices.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">What happens if I uninstall the app?</button>
+          <div class="faq-answer">You can reinstall and log in, and all your groups, expenses, and settlements will be restored from the cloud.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Does SplitCrew sell my data?</button>
+          <div class="faq-answer">No, we never sell or share your personal or group data. Privacy is always protected.</div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">How can I contact support?</button>
+          <div class="faq-answer">You can reach support directly from the app’s Help section or email us at contact@optimize.in.</div>
         </div>
       </div>
     </section>
@@ -1273,7 +1354,7 @@ display: flex;
       </a>
     </section>
   </main>
-  <button id="backToTop" title="Back to top">↑</button>
+  <button id="backToTop" title="Back to top"> <img src="/assets/images/backtotop.svg" ></button>
   <footer class="footer">
     <div class="footer-main">
       <div class="footer-brand">

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Legal - SplitCrew</title>
+  <title>Legal - Terms and Conditions</title>
+  <link rel="icon" type="image/png" href="/assets/images/Splitcrew_logo-removebg-preview.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
@@ -794,8 +795,9 @@ display: flex;
   <main>
     <!-- Tab Navigation -->
     <div class="tabs">
-      <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
       <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+      <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
+      
     </div>
 
     <!-- Terms Content -->
@@ -1070,28 +1072,29 @@ display: flex;
           const tabName = button.getAttribute('data-tab');
           switchTab(tabName);
           // Update URL hash for deep linking
-          history.pushState(null, null, `#${tabName}`);
+          history.pushState(null, null, `/privacy`);
         });
       });
 
-      // Handle initial page load with hash
-      const hash = window.location.hash.substring(1); // remove '#'
-      if (hash === 'privacy') {
-        switchTab('terms');
-        
-        } else {
-          switchTab('privacy');
-        }
+     // Handle initial page load with hash
+const hash = window.location.hash.substring(1); // remove '#'
+if (hash === 'terms') {
+  switchTab('terms');
+} else {
+  switchTab('privacy');
+}
 
-      // Handle browser back/forward
-      window.addEventListener('popstate', () => {
-        const hash = window.location.hash.substring(1);
-        if (hash === 'privacy') {
-          switchTab('privacy');
-        } else {
-          switchTab('terms');
-        }
-      });
+// Clean the URL (remove #privacy or #terms)
+if (hash) {
+  history.replaceState(null, null, '/privacy');
+}
+
+// Handle browser back/forward
+window.addEventListener('popstate', (e) => {
+  const tab = e.state?.tab || 'privacy';
+  switchTab(tab);
+});
+
     });
       // Force navigation for product links (in case of weird behavior)
   document.querySelectorAll('.nav-links a, .footer-list a').forEach(link => {

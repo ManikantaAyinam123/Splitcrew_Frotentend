@@ -27,7 +27,6 @@
     body {
       margin: 0;
       font-family: "Quicksand", sans-serif;
-      
       background: #fff;
       color: var(--dark);
       min-height: 100vh;
@@ -35,13 +34,14 @@
     }
     .container {
   width: 100%;
-  max-width: 1300px; /* or 1280px or your desired max content width */
+  max-width: 1300px; 
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;   /* some horizontal padding for small screens */
+  padding-left: 15px;  
   padding-right: 15px;
   box-sizing: border-box;
 }
+
 
     .navbar {
       position: fixed;
@@ -172,9 +172,9 @@
   box-shadow: var(--shadow);
   transition: transform 0.1s;
   user-select: none;
-  width: 100%;            /* Makes button stretch full width within parent */
-  max-width: 300px;       /* Adjust as needed */
-  justify-content: center;/* Text and icons center aligned */
+  width: 100%;           
+  max-width: 300px;       
+  justify-content: center;
 }
 .hero-content a {
   text-decoration: none;
@@ -185,7 +185,7 @@
     font-size: 1rem;
     padding: 10px 15px;
     max-width: 100%;
-    width: 100%;           /* Ensures button never overflows or gets clipped */
+    width: 100%;          
     min-width: 0;
     border-radius: 20px;
     gap: 6px;
@@ -224,22 +224,20 @@
       max-width: 100%;
       height: auto;
     }
-    /* .hero-img img {
-      max-width: 592px;
-      max-height: auto;
-    
-   
-    } */
-    .features-section {
-      /* background: var(--gray); */
-      /* padding: 55px 5vw 30px 5vw; */
-    }
-    .features-section .section-title {
+   .features-section .section-title {
       text-align: center;
       font-size: 2rem;
       font-weight: bold;
       color: #262626;
     }
+    .section-subtitle {
+  max-width: 650px;
+  margin: 0 auto 50px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  text-align: center;
+}
     .section-title .highlight {
       background: var(--textgradient);
       -webkit-background-clip: text;
@@ -252,12 +250,13 @@
       gap: 28px;
       max-width: 1080px;
       margin: 0 auto;
+    
     }
     .feature-card {
   position: relative;
   border-radius: 18px;
-  background: #fff;
-  box-shadow: var(--shadow);
+  /* background: #fff; */
+   box-shadow: var(--shadow); 
   padding: 30px 22px;
   z-index: 1;
 }
@@ -266,153 +265,165 @@
   position: absolute;
   inset: 0;
   border-radius: 18px;
-  padding: 2px; 
-  background: linear-gradient(90deg, #a259ea 0%, #f35eb0 100%);
+  padding: 2px;
   pointer-events: none;
-  opacity: 0;
   transition: opacity 0.2s;
   z-index: 2;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-.feature-card:hover::before {
-  opacity: 1;
-}
+  }
 
 .download-arrow {
-  height: 20px;          /* adjust size as needed */
+  height: 20px;       
   width: auto;
-  vertical-align: middle; /* aligns nicely with text */
-  padding: 0 5px;         /* space on both sides */
+  vertical-align: middle; 
+  padding: 0 5px;        
 }
-
-    /* .feature-card:hover {
-      border-radius: 18px;
-      border: 2px solid transparent;
-      border-image: var(--gradient2) 1;
-      box-shadow: 0 5px 24px 0 rgba(243, 93, 176, 0.2);
-      z-index: 2;
-    } */
-
-/* .feature-card:hover {
-  box-shadow: 0 5px 24px 0 rgba(243, 93, 176, 0.2);
-  border: 2px solid balck;
-  border-radius: 18px;
-} */
-    .feature-card .icon-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      /* background: var(--gradient2); */
-      background: rgba(255, 233, 255, 1);
-
-      color: #a259ea;
-      font-size: 1.4rem;
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      margin-bottom: 18px;
-      box-shadow: 0 1px 9px 0 rgba(162, 89, 234, 0.1);
-      user-select: none;
-    }
-    .feature-card h4 {
-      font-size: 1.11rem;
-      font-weight: bold;
-      color: #232323;
-      margin: 0 0 10px;
-    }
-    .feature-card p {
-      font-size: 0.98rem;
-      color: #555;
-      margin: 0;
-    }
-    .how-section {
-      background: #fff;
-      padding: 60px 5vw 35px 5vw;
-    }
-    .how-section .section-title {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-    
-      color: #282828;
-      user-select: none;
-    }
-    .how-section .highlight {
-      background: var(--textgradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .steps {
-      display: flex;
-      justify-content: center;
-      gap: 38px;
-      margin: 0 auto;
-      max-width: 960px;
-      flex-wrap: wrap;
-    }
-    .step-card {
-  background: #fafaff;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
-  padding: 35px 24px;
-  min-width: 240px;
-  flex: 1 1 230px;
-  text-align: center;
-  border: 2px solid transparent; /* Keep transparent default border */
-  position: relative;
-  margin-bottom: 10px;
-  /* transition: border 0.2s, box-shadow 0.2s; */
-  user-select: none;
-  overflow: visible; /* important for pseudo-element */
-  z-index: 1;
-}
-
-.step-card::before {
-  content: "";
+.feature-card .step-number-bg {
   position: absolute;
-  inset: 0;
-  border-radius: 15px;
-  padding: 2px; /* border thickness */
-  background: linear-gradient(90deg, #a259ea 0%, #f35eb0 100%);
-  box-shadow: 0px 24px 48px -12px rgba(237, 215, 255, 1);
+  top: 20px;
+  right:50px;
+  width: 80px;
+  height: auto;
+  z-index: 0;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.25s;
-  z-index: 2;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+ }
+.icon-box {
+  background: rgba(162, 89, 234, 0.1);
+  color: #a259ea;
+  width: 50px;
+  height: 50px;
+  border-radius:50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 16px;
+
 }
-.step-card:hover::before {
-  opacity: 1;
- 
+.feature-card h4 {
+  font-size: 1.2rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-    .step-card .step-number {
-      background: var(--gradient2);
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.15rem;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      user-select: none;
+.feature-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 800px) {
+  .feature-card {
+    padding: 25px 20px;
+   
+  }
+  .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 500px;
+      margin: 0 auto;
     }
-    .step-card h4 {
-      font-size: 1.13rem;
-      margin: 7px 0 12px 0;
-    }
+  .feature-card .step-number-bg {
+    width: 70px;
+    top: 6px;
+    right: 6px;
+  }
+
+  .icon-box {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .feature-card .step-number-bg {
+  position: absolute;
+  top: 10px;
+  right:50px;
+  width: 80px;
+  height: auto;
+
+  z-index: 0;
+  pointer-events: none;
+ }
+}
+ .how-section {
+  background: #fff;
+  margin-top: 40px;
+
+}
+
+.how-section .section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #282828;
+  user-select: none;
+}
+
+.how-section .steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px; 
+  flex-wrap: wrap;
+}
+
+.step-card {
+  background: #fff;
+  border: 1.5px solid #e5ccff;
+  border-radius: 12px;
+  padding: 30px 22px;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 3px 14px rgba(162, 89, 234, 0.08);
+}
+
+.step-card h4 {
+  font-size: 1.2rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.step-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 80px;
+  height: 80px; */
+  margin: 0 auto 16px auto;
+}
+
+.step-number img {
+  width: 50px;
+  height: 50px;
+}
+
+.arrow-svg {
+  width: 80px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+@media (max-width: 800px) {
+  .how-section .steps {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .arrow-svg {
+    transform: rotate(90deg);
+    width: 60px;
+  }
+}
+
+
+
+
     .faq-section {
       padding: 56px 5vw 38px 5vw;
       background: #fff;
@@ -456,7 +467,7 @@
   position: absolute;
   inset: 0;
   border-radius: 14px;
-  padding: 2px; /* border thickness */
+  padding: 2px; 
   background: var(--gradient2);
   pointer-events: none;
   opacity: 0;
@@ -588,7 +599,7 @@
 /* --- Main Footer Layout --- */
 .footer-main {
   display: flex;
-  align-items: flex-start; /* Critical: aligns all columns at the top */
+  align-items: flex-start; 
   justify-content: space-between;
   gap: 36px;
   width: 100%;
@@ -606,7 +617,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 0 0 8px 0; /* No top margin, small bottom margin */
+  margin: 0 0 8px 0; 
 }
 
 .footer-logo {
@@ -667,7 +678,7 @@
   color: #502e88;
   font-weight: 700;
   letter-spacing: 0.02em;
-  margin: 0 0 12px 0; /* No top margin — aligns with .footer-title */
+  margin: 0 0 12px 0; 
   line-height: 1.2;
   padding: 0;
 }
@@ -776,10 +787,10 @@ display: flex;
 
   }
   .download-arrow {
-  height: 15px;          /* adjust size as needed */
+  height: 15px;         
   width: auto;
-  vertical-align: middle; /* aligns nicely with text */
-  padding: 0 5px;         /* space on both sides */
+  vertical-align: middle; 
+  padding: 0 5px;         
 }
   .footer-title {
     font-size: 1.05rem;
@@ -892,7 +903,7 @@ display: flex;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;                 /* Full width for overlay effect */
+  width: 100vw;              
   height: 100vh;
   background: rgba(255, 255, 255, 1);
   backdrop-filter: blur(16px);
@@ -1091,13 +1102,14 @@ display: flex;
       <div class="section-title">
         Features <span class="highlight">You’ll Love</span>
       </div>
-      <div style="text-align: center; max-width: 650px; margin: 0 auto 30px auto; color: #555;">
+      <div class="section-subtitle">
         SplitCrew goes beyond simple expense splitting with tools that make managing group and personal finances
         effortless.
       </div>
       <div class="features-grid">
         <div class="feature-card">
           <div class="icon-box"><span class="iconify " data-icon="material-symbols:groups"></span></div>
+          <img src="assets/images/1.svg" alt="Step 1" class="step-number-bg"  />
           <h4>Group Expenses</h4>
           <p>
             SplitCrew goes beyond simple expense splitting with tools that make managing group and personal finances
@@ -1106,6 +1118,7 @@ display: flex;
         </div>
         <div class="feature-card">
           <div class="icon-box"><span class="iconify " data-icon="material-symbols:calculate-rounded"></span></div>
+          <img src="assets/images/2.svg" alt="Step 1" class="step-number-bg"  />
           <h4>Flexible Splitting</h4>
           <p>
             Split bills equally, unequally, by percentage, or by a number of shares. SplitCrew handles the math for you.
@@ -1113,6 +1126,7 @@ display: flex;
         </div>
         <div class="feature-card">
           <div class="icon-box"><span class="iconify " data-icon="streamline-ultimate:cash-payment-bills-bold"></span></div>
+          <img src="assets/images/3.svg" alt="Step 1" class="step-number-bg"  />
           <h4>Settlements & Reminders</h4>
           <p>
             Send reminders to friends and settle debts with a single tap from within the app, streamlining the process.
@@ -1120,6 +1134,7 @@ display: flex;
         </div>
         <div class="feature-card">
           <div class="icon-box"><span class="iconify " data-icon="fluent:chat-multiple-32-filled"></span></div>
+          <img src="assets/images/4.svg" alt="Step 1" class="step-number-bg"  />
           <h4>Group Chat</h4>
           <p>
             No more juggling apps. Use the built-in group chat to discuss expenses and send reminders to your friends to
@@ -1128,11 +1143,13 @@ display: flex;
         </div>
         <div class="feature-card">
           <div class="icon-box"><span class="iconify " data-icon="fluent:chart-multiple-24-filled"></span></div>
+          <img src="assets/images/5.svg" alt="Step 1" class="step-number-bg"  />
           <h4>Export Reports</h4>
           <p>Easily export and share comprehensive reports to get a full overview of your group's spending.</p>
         </div>
         <div class="feature-card">
           <div class="icon-box"><span class="iconify " data-icon="fluent:notepad-person-24-filled"></span></div>
+          <img src="assets/images/6.svg" alt="Step 1" class="step-number-bg"  />
           <h4>Personal Expenses</h4>
           <p>
             Keep track of your own spending and stay on top of your budget with a dedicated personal expenses logging.
@@ -1141,7 +1158,7 @@ display: flex;
       </div>
     </section>
 
-    <section class="how-section" id="how">
+    <section class="how-section">
       <div class="section-title">
         How it <span class="highlight">Works?</span>
       </div>
@@ -1150,29 +1167,37 @@ display: flex;
       </div>
       <div class="steps">
         <div class="step-card">
-          <div class="step-number">1</div>
+          <div class="step-number">
+            <img src="assets/images/stepnumber.svg" alt="Step 1" />
+          </div>
           <h4>Create a Group</h4>
-          <div>
-            Start a group for any occasion, from a weekend trip to a shared apartment by adding people from your
-            contacts.
-          </div>
+          <p>Start a group for any occasion, from a weekend trip to a shared apartment by adding people from your contacts.</p>
         </div>
+    
+        <!-- SVG arrow between steps -->
+
+        <img src="assets/images/arrow.svg" alt="arrow" class="arrow-svg" />
+    
         <div class="step-card">
-          <div class="step-number">2</div>
+          <div class="step-number">
+          <img src="assets/images/stepnumber2.svg" alt="Step 2" />
+          </div>
           <h4>Add an Expense</h4>
-          <div>
-            Easily log a new expense. Choose participants, set the amount, who paid and select how to split it.
-          </div>
+          <p>Easily log a new expense. Choose participants, set the amount, who paid and select how to split it.</p>
         </div>
+    
+        <img src="assets/images/arrow.svg" alt="arrow" class="arrow-svg" />
+    
         <div class="step-card">
-          <div class="step-number">3</div>
-          <h4>Settle Up</h4>
-          <div>
-            SplitCrew calculates who owes whom. Settle up quickly and view your balance with others.
+          <div class="step-number">
+          <img src="assets/images/stepnumber3.svg" alt="Step 3" />
           </div>
+          <h4>Settle Up</h4>
+          <p>SplitCrew calculates who owes whom. Settle up quickly and view your balance with others.</p>
         </div>
       </div>
     </section>
+    
 
     <section class="faq-section" id="faq">
       <div class="section-title">
@@ -1183,17 +1208,15 @@ display: flex;
       </div>
       <div class="faq-list" id="faqList">
         <div class="faq-item">
-          <button class="faq-question" tabindex="0">How does SplitCrew split expenses?</button>
+          <button class="faq-question" tabindex="0">What is SplitCrew?</button>
           <div class="faq-answer">
-            SplitCrew allows you to split expenses equally, unequally, by shares or percentages. You can include or exclude
-            people in specific expenses, making it flexible for all scenarios.
+            SplitCrew is a mobile app that helps you split group expenses, track balances, settle up with friends and track your personal expenses.
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" tabindex="0">Can I track my personal expenses?</button>
+          <button class="faq-question" tabindex="0">Is SplitCrew free to use?</button>
           <div class="faq-answer">
-            Yes, you can log personal expenses separately, so your solo spending is tracked alongside group payments.
-          </div>
+            Download the app from play store, and sign up with your phone number, and you’re ready to start creating groups.          </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" tabindex="0">Are reports exportable?</button>
@@ -1202,19 +1225,34 @@ display: flex;
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" tabindex="0">Does SplitCrew have reminders?</button>
-          <div class="faq-answer">Yes, automatic reminders help keep the group on track to settle up quickly and easily.</div>
+          <button class="faq-question" tabindex="0">Do I need internet to use SplitCrew?</button>
+          <div class="faq-answer">Yes. Since all data is stored and synced in the cloud, you’ll need an internet connection.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" tabindex="0">Is group chat available in-app?</button>
+          <button class="faq-question" tabindex="0">How do I create a group?</button>
           <div class="faq-answer">
-            A built-in chat lets participants discuss costs right inside SplitCrew. No more juggling messaging apps for money
-            talk.
+            Tap Create a new Group, enter details like name, description, group type, and add members from contacts.
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" tabindex="0">What platforms is SplitCrew available on?</button>
-          <div class="faq-answer">Currently on Android. iOS version is coming soon!</div>
+          <button class="faq-question" tabindex="0">What types of groups can I make?</button>
+          <div class="faq-answer">You can create groups for Home, Trip, Couple, Friends, Party or others</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I add or remove members later?</button>
+          <div class="faq-answer">Yes, admins can add or remove members anytime.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">Can I see how much a friend owes me overall?</button>
+          <div class="faq-answer">Yes. Head over to the Friends tab, select a friend, and you’ll see their total balances across all groups along with mutual groups you share.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">What if my friend doesn’t use SplitCrew?</button>
+          <div class="faq-answer">You can invite them to SplitCrew and once they sign up you can add them to a group.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" tabindex="0">How do I add an expense?</button>
+          <div class="faq-answer">To add an expense, go to a group, tap Add a New Expense, select participants, enter the price, date, title, type, payer, split method, and an optional note, then tap Save Expense.</div>
         </div>
       </div>
     </section>

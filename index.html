@@ -753,6 +753,33 @@ display: flex;
   text-align: right;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* position above */
+  left: 50%;
+  margin-left: -80px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
 
 
 /* --- Responsive --- */
@@ -1052,7 +1079,7 @@ display: flex;
       <a href="#how" data-scroll>How it works?</a>
       <a href="#faq" data-scroll>FAQ's</a>
 
-      <a href="https://play.google.com/apps/test/RQ5xPrHG28Y/ahAO29uNQRhtrGu1fjRbtO9xDYViRCL2Hf_gMhGaeK0B9txVeNw5piXvbbsrS4Pi9Y4qciKUSGq9i779-qRKRGKxtW" target="_blank" rel="noopener noreferrer">
+      <a href="https://play.google.com/store/apps/details?id=com.mantenasyam.Splitcrewapp" target="_blank">
         <button class="download-btn">Download Now</button>
       </a>
     </nav>
@@ -1085,7 +1112,7 @@ display: flex;
           Effortlessly split bills, track who owes what, and settle up with friends and family. Plus, chat
           with your crew and track personal expenses, all in one place.
         </p>
-        <a href="https://play.google.com/apps/test/RQ5xPrHG28Y/ahAO29uNQRhtrGu1fjRbtO9xDYViRCL2Hf_gMhGaeK0B9txVeNw5piXvbbsrS4Pi9Y4qciKUSGq9i779-qRKRGKxtW" target="_blank" rel="noopener noreferrer">
+        <a href="https://play.google.com/store/apps/details?id=com.mantenasyam.Splitcrewapp" target="_blank" rel="noopener noreferrer">
         <button class="download-btn">
           <span>Download on</span>
           <img src="/assets/images/download.png"  class="download-arrow">
@@ -1344,7 +1371,7 @@ display: flex;
       <div style="color: #555; max-width: 550px; margin: 0 auto 18px auto;">
         Join thousands of users who trust our app for seamless expense management.
       </div>
-      <a href="https://play.google.com/apps/test/RQ5xPrHG28Y/ahAO29uNQRhtrGu1fjRbtO9xDYViRCL2Hf_gMhGaeK0B9txVeNw5piXvbbsrS4Pi9Y4qciKUSGq9i779-qRKRGKxtW" target="_blank" rel="noopener noreferrer">
+      <a href="https://play.google.com/store/apps/details?id=com.mantenasyam.Splitcrewapp" target="_blank" rel="noopener noreferrer">
       <button class="cta-btn">
         Download on
        
@@ -1366,7 +1393,7 @@ display: flex;
         <div class="footer-tagline">
           Simplifying group expenses and personal finance, one split at a time.
         </div>
-        <a href="https://play.google.com/apps/test/RQ5xPrHG28Y/ahAO29uNQRhtrGu1fjRbtO9xDYViRCL2Hf_gMhGaeK0B9txVeNw5piXvbbsrS4Pi9Y4qciKUSGq9i779-qRKRGKxtW" target="_blank" rel="noopener noreferrer">
+        <a href="https://play.google.com/store/apps/details?id=com.mantenasyam.Splitcrewapp" target="_blank" rel="noopener noreferrer">
         <button class="footer-btn">
           Download on 
           <img src="/assets/images/download.png"  class="download-arrow"> Play Store
@@ -1393,7 +1420,13 @@ display: flex;
         <div class="footer-list footer-connect">
           <h5>Connect</h5>
           <ul>
-            <li><a href="mailto:contact@actimize.in"> <span class="iconify footer-icon" data-icon="icomoon-free:mail4"></span> contact@actimize.in</a></li>
+            <li class="tooltip">
+              <a href="mailto:contact@actimize.in">
+                <span class="iconify footer-icon" data-icon="icomoon-free:mail4"></span>
+                Contact Us
+              </a>
+              <span class="tooltiptext">contact@actimize.in</span>
+            </li>
             <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:linkedin-with-circle"></span> LinkedIn</a></li>
             <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:instagram-with-circle"></span> Instagram</a></li>
             <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:facebook-with-circle"></span> Facebook</a></li>

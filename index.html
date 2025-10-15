@@ -1043,7 +1043,7 @@ display: flex;
 </head>
 <body class="container">
   <header class="navbar">
-    <a href="/index.html" class="brand">
+    <a href="/" class="brand">
       <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew Logo" />
       <span>SplitCrew</span>
     </a>
@@ -1063,7 +1063,7 @@ display: flex;
       <div></div>
       
       <ul class="nav-links responsive" id="mobileNav">
-        <a href="/index.html" class="brand">
+        <a href="/" class="brand">
           <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew Logo" />
           <span>SplitCrew</span>
         </a>
@@ -1421,22 +1421,35 @@ display: flex;
 
   <script>
     // Navbar scrolling
-    document.querySelectorAll('[data-scroll]').forEach((link) => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        let target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 58,
-            behavior: "smooth",
-          });
-          // close nav if on mobile
-          if (window.innerWidth <= 700) {
-            navLinks.classList.remove("show");
-          }
-        }
-      });
-    });
+ // Navbar scrolling (clean URL, no #features)
+// Navbar scrolling (clean URL, no #features)
+document.querySelectorAll('[data-scroll]').forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Support hrefs like "#how" or "/index.html#how"
+    const href = this.getAttribute("href");
+    const targetId = href.split("#")[1];
+    const target = document.getElementById(targetId);
+
+    if (target) {
+      const offset = 58; // adjust for header height
+      const topPos = target.offsetTop - offset;
+      window.scrollTo({ top: topPos, behavior: "smooth" });
+
+      // Clean URL: remove index.html and hash
+      const cleanUrl = window.location.origin + window.location.pathname.replace("index.html", "");
+      history.replaceState(null, "", cleanUrl);
+
+      // Close mobile nav if open
+      if (window.innerWidth <= 700 && typeof navLinks !== "undefined") {
+        navLinks.classList.remove("show");
+      }
+    }
+  });
+});
+
+
 
     // Back to top button
     const backToTop = document.getElementById("backToTop");

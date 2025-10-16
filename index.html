@@ -1439,8 +1439,11 @@ display: flex;
       <div class="footer-product">
         A Product of 
         <span>
+         
         <img src="/assets/images/actimizelogo.png" alt="Actimize Logo" style="height:18px;">
+        <a href="https://actimize.in/"target="blank" style="text-decoration: none;">
         <span>Actimize Software Solutions</span>
+      </a>
         </span>
       </div>
       <div class="footer-copyright">
@@ -1498,23 +1501,29 @@ document.querySelectorAll('[data-scroll]').forEach((link) => {
     };
 
     // FAQ Accordions
-    document.querySelectorAll(".faq-question").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        let item = this.closest(".faq-item");
-        item.classList.toggle("open");
-        if (item.classList.contains("open")) {
-          item.querySelector(".faq-answer").style.maxHeight =
-            item.querySelector(".faq-answer").scrollHeight + 40 + "px";
-        } else {
-          item.querySelector(".faq-answer").style.maxHeight = "0px";
-        }
-      });
-      btn.addEventListener("keyup", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          this.click();
-        }
-      });
+    document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const item = this.closest('.faq-item');
+    
+    // Close all other open FAQ items
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      if (openItem !== item) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-answer').style.maxHeight = 0;
+      }
     });
+
+    // Toggle the clicked FAQ item
+    item.classList.toggle('open');
+    const answer = item.querySelector('.faq-answer');
+    if (item.classList.contains('open')) {
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    } else {
+      answer.style.maxHeight = 0;
+    }
+  });
+});
+
 
     // Highlight active nav link on scroll
     window.addEventListener("scroll", () => {

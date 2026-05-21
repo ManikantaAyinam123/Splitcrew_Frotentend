@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -21,9 +22,11 @@
       --gradient2: linear-gradient(180deg, #C77DFF 0%, #9D4EDD 100%);
       --textgradient: linear-gradient(264.05deg, #FDBCEF -3.39%, #EC38BC 25.79%, #7303C0 113.3%, #03001E 113.32%)
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       margin: 0;
       font-family: "Quicksand", sans-serif;
@@ -32,6 +35,7 @@
       min-height: 100vh;
       line-height: 1.75;
     }
+
     .container {
       width: 100%;
       max-width: 1350px;
@@ -59,6 +63,7 @@
       padding: 0 32px;
       transition: height 0.3s ease;
     }
+
     .navbar .brand {
       display: flex;
       align-items: center;
@@ -70,17 +75,21 @@
       text-decoration: none;
 
     }
+
     .navbar .brand img {
       height: 36px;
     }
+
     .nav-links {
       display: flex;
       align-items: center;
       gap: 0;
     }
+
     .nav-links a:not(:last-child) {
       margin-right: 42px;
     }
+
     .nav-links a {
       color: #24292f;
       font-weight: 600;
@@ -90,10 +99,12 @@
       position: relative;
       user-select: none;
     }
+
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--primary);
     }
+
     .navbar .download-btn {
       background: var(--gradient2);
       border-radius: 12px;
@@ -107,6 +118,7 @@
       font-size: 1rem;
       user-select: none;
     }
+
     .navbar .download-btn:hover {
       transform: translateY(-2px) scale(1.04);
       box-shadow: 0 3px 16px 0 rgba(162, 89, 234, 0.21);
@@ -121,12 +133,13 @@
     /* --- Tab Navigation --- */
     .tabs {
       /* display: flex; */
-      
+
       border-bottom: 2px solid #f0e6ff;
       margin-bottom: 30px;
       gap: 20px;
 
     }
+
     .tab-btn {
       background: none;
       border: none;
@@ -139,63 +152,68 @@
       transition: color 0.2s;
       user-select: none;
     }
+
     .tab-btn.active {
       color: var(--primary);
       border-bottom: 3px solid var(--primary);
     }
+
     .tab-btn:hover {
       color: var(--secondary);
     }
 
     /* Stack tabs vertically on small screens */
-@media (max-width: 600px) {
-  .tabs {
-    display: flex;
-    
-    border-bottom: 2px solid #f0e6ff;
-      margin-bottom: 10px;
-   
-     
+    @media (max-width: 600px) {
+      .tabs {
+        display: flex;
 
-    }
+        border-bottom: 2px solid #f0e6ff;
+        margin-bottom: 10px;
 
-    .tab-btn {
-      background: none;
-      border: none;
-      /* padding: 15px 30px; */
-      /* font-size: 0.8rem;
+
+
+      }
+
+      .tab-btn {
+        background: none;
+        border: none;
+        /* padding: 15px 30px; */
+        /* font-size: 0.8rem;
       font-weight: 600; */
-      font-size: 14px;
-      color: #666;
-      cursor: pointer;
-      /* position: relative; */
-      transition: color 0.2s;
-      user-select: none;
+        font-size: 14px;
+        color: #666;
+        cursor: pointer;
+        /* position: relative; */
+        transition: color 0.2s;
+        user-select: none;
+      }
+
+      .tab-btn.active {
+        color: var(--primary);
+        border-bottom: 3px solid var(--primary);
+      }
     }
-    .tab-btn.active {
-      color: var(--primary);
-      border-bottom: 3px solid var(--primary);
-    }
-}
 
     /* --- Tab Content --- */
     .tab-content {
       display: none;
     }
+
     .tab-content.active {
       display: block;
     }
 
     /* --- Terms/Privacy Page Specific Styles --- */
     .terms-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-bottom: 2px solid #f0e6ff;
-    /* padding-bottom: 10px; */
-    /* margin-bottom: 20px; */
-   
-  }
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-bottom: 2px solid #f0e6ff;
+      /* padding-bottom: 10px; */
+      /* margin-bottom: 20px; */
+
+    }
+
     .terms-title {
       font-size: 1.5rem;
       font-weight: 600;
@@ -203,6 +221,7 @@
       /* font-weight: bold; */
       color: #24292f;
     }
+
     .last-updated {
       font-size: 0.8rem;
       color: #777;
@@ -216,19 +235,23 @@
       margin-bottom: 15px;
       color: #24292f;
     }
+
     .table-of-contents ol {
       list-style-type: decimal;
       padding-left: 20px;
       margin: 0;
     }
+
     .table-of-contents li {
       margin: 8px 0;
     }
+
     .table-of-contents a {
       color: #a259ea;
       text-decoration: underline;
       font-weight: 600;
     }
+
     .table-of-contents a:hover {
       color: #f35eb0;
     }
@@ -236,6 +259,7 @@
     .section {
       margin: 40px 0;
     }
+
     .section h2 {
       font-size: 1.2rem;
       font-weight: bold;
@@ -244,6 +268,7 @@
       border-bottom: 2px solid #f0e6ff;
       padding-bottom: 10px;
     }
+
     .section p {
       line-height: 1.7;
       color: #444;
@@ -254,7 +279,7 @@
       position: fixed;
       bottom: 34px;
       right: 35px;
-      background:rgba(231, 200, 248, 1);
+      background: rgba(231, 200, 248, 1);
       color: #fff;
       border: none;
       border-radius: 50%;
@@ -270,9 +295,10 @@
       transition: transform 0.15s;
       user-select: none;
     }
+
     #backToTop {
-      background:rgba(231, 200, 248, 1);
-      
+      background: rgba(231, 200, 248, 1);
+
       display: none;
       position: fixed;
       bottom: 34px;
@@ -294,6 +320,7 @@
       user-select: none;
       /* border: 2px solid var(--primary); */
     }
+
     .back-to-top:hover {
       transform: translateY(-3px) scale(1.06);
       box-shadow: 0 5px 22px 0 rgba(243, 94, 176, 0.18);
@@ -301,292 +328,312 @@
 
     /* --- Footer Styles (Same as index.html) --- */
     .footer {
-  background: linear-gradient(180deg, #fff 85%, #f4e1ff 100%);
-  border-radius: 15px 15px 0 0;
-  margin: 24px auto 0 auto;
-  box-shadow: 0 6px 32px 0 rgba(162, 89, 234, 0.06);
-  padding: 36px 3vw 24px 3vw;
-  border-top: 2px solid #f4d8ff;
-  max-width: 1250px;
-}
+      background: linear-gradient(180deg, #fff 85%, #f4e1ff 100%);
+      border-radius: 15px 15px 0 0;
+      margin: 24px auto 0 auto;
+      box-shadow: 0 6px 32px 0 rgba(162, 89, 234, 0.06);
+      padding: 36px 3vw 24px 3vw;
+      border-top: 2px solid #f4d8ff;
+      max-width: 1250px;
+    }
 
-/* --- Main Footer Layout --- */
-.footer-main {
-  display: flex;
-  align-items: flex-start; /* Critical: aligns all columns at the top */
-  justify-content: space-between;
-  gap: 36px;
-  width: 100%;
-}
+    /* --- Main Footer Layout --- */
+    .footer-main {
+      display: flex;
+      align-items: flex-start;
+      /* Critical: aligns all columns at the top */
+      justify-content: space-between;
+      gap: 36px;
+      width: 100%;
+    }
 
-/* --- Brand Section --- */
-.footer-brand {
-  min-width: 280px;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-}
+    /* --- Brand Section --- */
+    .footer-brand {
+      min-width: 280px;
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+    }
 
-.footer-logo-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 8px 0; /* No top margin, small bottom margin */
-}
+    .footer-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 8px 0;
+      /* No top margin, small bottom margin */
+    }
 
-.footer-logo {
-  height: 36px;
-  width: 36px;
-}
+    .footer-logo {
+      height: 36px;
+      width: 36px;
+    }
 
-.footer-title {
-  font-weight: bold;
-  font-size: 1.18rem;
-  color: #a259ea;
-  letter-spacing: 0.5px;
-  margin: 0;
-  line-height: 1.2;
-}
+    .footer-title {
+      font-weight: bold;
+      font-size: 1.18rem;
+      color: #a259ea;
+      letter-spacing: 0.5px;
+      margin: 0;
+      line-height: 1.2;
+    }
 
-.footer-tagline {
-  color: #616161;
-  font-size: 1rem;
-  margin: 0 0 17px 0;
-  line-height: 1.5;
-}
+    .footer-tagline {
+      color: #616161;
+      font-size: 1rem;
+      margin: 0 0 17px 0;
+      line-height: 1.5;
+    }
 
-.footer-btn {
-  margin: 0;
-  background: var(--gradient2);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 12px 24px;
-  box-shadow: 0 3px 14px 0 rgba(162, 89, 234, 0.1);
-  cursor: pointer;
-  transition: background 0.2s;
-  display: inline-flex;
-  align-items: center;
-  max-width:80%;
-}
-
-.download-arrow {
-  height: 20px;          /* adjust size as needed */
-  width: auto;
-  vertical-align: middle; /* aligns nicely with text */
-  padding: 0 5px;         /* space on both sides */
-}
-
-/* --- Footer Links Columns --- */
-.footer-lists {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 30px;
-  flex: 1;
-}
-
-.footer-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.footer-list h5 {
-  font-size: 1.08rem;
-  color: #502e88;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  margin: 0 0 12px 0; /* No top margin — aligns with .footer-title */
-  line-height: 1.2;
-  padding: 0;
-}
-
-.footer-list ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-list li {
-  margin: 0;
-}
-
-.footer-list a {
-  color: #333;
-  text-decoration: none;
-  font-size: 1.02rem;
-  transition: color 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.footer-list a:hover {
-  color: #a259ea;
-}
-
-.footer-icon {
-  color: #a259ea;
-  font-size:1.8rem;
-  margin-right: 3px;
-  
-}
-
-/* --- Footer Bottom Bar --- */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1.5px solid #eabeff36;
-  padding-top: 16px;
-  font-size: 0.96rem;
-  color: #444;
-  max-width: 1200px;
-  margin: 24px auto 0 auto;
-  user-select: none;
-}
-
-.footer-product {
-  font-weight: 400;
-
-display: flex;
- 
-
-}
-
-.footer-product span {
-  color: var(--primary);
-  font-weight: 600;
-  margin-left: 5px;
-  display: flex;
-  align-items: center;
-  
-}
-
-.footer-copyright {
-  text-align: right;
-}
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 170px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; /* position above */
-  left: 50%;
-  margin-left: -80px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-
-
-/* --- Responsive --- */
-@media (max-width: 900px) {
-  .footer-main {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
-  }
-  .footer-lists {
-    flex-direction: column;
-    width: 100%;
-    gap: 24px;
-  }
-  .footer-brand {
-    min-width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .footer {
-    padding: 22px 2vw 12px 2vw;
-    border-radius: 10px 10px 0 0;
-    max-width: 100vw;
-  }
-  
-  .footer-btn {
-    font-size: 0.8rem;
-    padding: 8px 10px;
-    max-width:70%;
-    font-weight: 600;
-    justify-content: center;
-
-  }
-  .download-arrow {
-  height: 15px;          /* adjust size as needed */
-  width: auto;
-  vertical-align: middle; /* aligns nicely with text */
-  padding: 0 5px;         /* space on both sides */
-}
-  .footer-title {
-    font-size: 1.05rem;
-  }
-  .footer-tagline {
-    font-size: 0.95rem;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-  .footer-copyright {
-    text-align: center;
-  }
-  .cta-section .cta-btn {
-    border-radius: 12px;
+    .footer-btn {
+      margin: 0;
+      background: var(--gradient2);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
       font-weight: 600;
-      padding: 10px 15px;
-      font-size: 0.9rem;
-      display: inline-flex;     
-      align-items: center;       
-      justify-content: center;    
-   }
-   .footer-product {
-  font-weight: 400;
-flex-direction: column;
-display: flex;
- 
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      box-shadow: 0 3px 14px 0 rgba(162, 89, 234, 0.1);
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      max-width: 80%;
+    }
 
-}
+    .download-arrow {
+      height: 20px;
+      /* adjust size as needed */
+      width: auto;
+      vertical-align: middle;
+      /* aligns nicely with text */
+      padding: 0 5px;
+      /* space on both sides */
+    }
 
-.footer-product span {
-  color: var(--primary);
-  font-weight: 600;
-  margin-left: 5px;
-  display: flex;
-  align-items: center;
-  
-}
+    /* --- Footer Links Columns --- */
+    .footer-lists {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+      flex: 1;
+    }
 
-.footer-icon {
-  color: #a259ea;
-  font-size:1.8rem;
-  margin-right: 3px;
-  
-}
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
-}
+    .footer-list h5 {
+      font-size: 1.08rem;
+      color: #502e88;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0 0 12px 0;
+      /* No top margin — aligns with .footer-title */
+      line-height: 1.2;
+      padding: 0;
+    }
+
+    .footer-list ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-list li {
+      margin: 0;
+    }
+
+    .footer-list a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.02rem;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .footer-list a:hover {
+      color: #a259ea;
+    }
+
+    .footer-icon {
+      color: #a259ea;
+      font-size: 1.8rem;
+      margin-right: 3px;
+
+    }
+
+    /* --- Footer Bottom Bar --- */
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1.5px solid #eabeff36;
+      padding-top: 16px;
+      font-size: 0.96rem;
+      color: #444;
+      max-width: 1200px;
+      margin: 24px auto 0 auto;
+      user-select: none;
+    }
+
+    .footer-product {
+      font-weight: 400;
+
+      display: flex;
+
+
+    }
+
+    .footer-product span {
+      color: var(--primary);
+      font-weight: 600;
+      margin-left: 5px;
+      display: flex;
+      align-items: center;
+
+    }
+
+    .footer-copyright {
+      text-align: right;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 170px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      /* position above */
+      left: 50%;
+      margin-left: -80px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .footer-main {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+      }
+
+      .footer-lists {
+        flex-direction: column;
+        width: 100%;
+        gap: 24px;
+      }
+
+      .footer-brand {
+        min-width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer {
+        padding: 22px 2vw 12px 2vw;
+        border-radius: 10px 10px 0 0;
+        max-width: 100vw;
+      }
+
+      .footer-btn {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+        max-width: 70%;
+        font-weight: 600;
+        justify-content: center;
+
+      }
+
+      .download-arrow {
+        height: 15px;
+        /* adjust size as needed */
+        width: auto;
+        vertical-align: middle;
+        /* aligns nicely with text */
+        padding: 0 5px;
+        /* space on both sides */
+      }
+
+      .footer-title {
+        font-size: 1.05rem;
+      }
+
+      .footer-tagline {
+        font-size: 0.95rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .footer-copyright {
+        text-align: center;
+      }
+
+      .cta-section .cta-btn {
+        border-radius: 12px;
+        font-weight: 600;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer-product {
+        font-weight: 400;
+        flex-direction: column;
+        display: flex;
+
+
+      }
+
+      .footer-product span {
+        color: var(--primary);
+        font-weight: 600;
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+
+      }
+
+      .footer-icon {
+        color: #a259ea;
+        font-size: 1.8rem;
+        margin-right: 3px;
+
+      }
+
+    }
 
     /* Back to top button */
     #backToTop {
@@ -610,6 +657,7 @@ display: flex;
       font-family: inherit;
       user-select: none;
     }
+
     #backToTop:hover {
       transform: translateY(-3px) scale(1.06);
       box-shadow: 0 5px 22px 0 rgba(243, 94, 176, 0.18);
@@ -626,115 +674,125 @@ display: flex;
       gap: 5px;
       user-select: none;
     }
+
     .hamburger div {
       height: 3px;
       background: var(--primary);
       border-radius: 3px;
       transition: all 0.3s ease;
     }
+
     /* Mobile menu: slide in from right */
-/* Mobile menu hidden by default */
+    /* Mobile menu hidden by default */
 
 
     @media (max-width: 700px) {
       .nav-links {
         display: none;
       }
+
       .nav-links.responsive {
         display: flex;
       }
-  
+
 
       /* Mobile Menu - Slide in from right */
       .nav-links.responsive {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;                 /* Full width for overlay effect */
-  height: 100vh;
-  background: rgba(255, 255, 255, 1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  flex-direction: column;
-  z-index: 1001;
-  transform: translateY(-105%);
-  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
-  overflow-y: auto;
-  display: flex;
- 
-}
-.nav-links.responsive .brand {
-  font-size: 1.8rem;
-  gap: 8px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        /* Full width for overlay effect */
+        height: 100vh;
+        background: rgba(255, 255, 255, 1);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        z-index: 1001;
+        transform: translateY(-105%);
+        transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+        overflow-y: auto;
+        display: flex;
 
-  display: flex;
-  color:black;
-}
+      }
 
-.nav-links.responsive.show {
-  transform: translateX(0);
-}
+      .nav-links.responsive .brand {
+        font-size: 1.8rem;
+        gap: 8px;
 
-/* Style links inside mobile menu */
-.nav-links.responsive a,
-.nav-links.responsive .download-btn {
-  padding: 12px 20px;
-  font-size: 1.15rem;
-  color: var(--primary);
-  font-weight: 700;
-  border-radius: 8px;
-  margin: 4px 0;
-  width: 100%;
-  text-align: left;
-  display: block;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  box-sizing: border-box;
-}
+        display: flex;
+        color: black;
+      }
 
-.nav-links.responsive .download-btn {
-  background: var(--gradient2);
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: 12px;
-}
+      .nav-links.responsive.show {
+        transform: translateX(0);
+      }
 
-.nav-links.responsive a:hover,
-.nav-links.responsive a.active,
-.nav-links.responsive .download-btn:hover {
-  background: var(--gradient2);
-  color: #fff;
-  box-shadow: var(--shadow);
-}
+      /* Style links inside mobile menu */
+      .nav-links.responsive a,
+      .nav-links.responsive .download-btn {
+        padding: 12px 20px;
+        font-size: 1.15rem;
+        color: var(--primary);
+        font-weight: 700;
+        border-radius: 8px;
+        margin: 4px 0;
+        width: 100%;
+        text-align: left;
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+
+      .nav-links.responsive .download-btn {
+        background: var(--gradient2);
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 20px;
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      .nav-links.responsive a:hover,
+      .nav-links.responsive a.active,
+      .nav-links.responsive .download-btn:hover {
+        background: var(--gradient2);
+        color: #fff;
+        box-shadow: var(--shadow);
+      }
+
       .navbar {
         padding: 12px 20px;
         height: auto;
         flex-wrap: nowrap;
       }
+
       .hamburger {
         display: flex;
       }
+
       .navbar .download-btn {
         display: none;
       }
     }
 
- 
+
 
 
     /* Smaller breakpoints tweaks */
     @media (max-width: 995px) {
+
       .hero,
       .features-grid,
       .steps {
         flex-direction: column;
         display: flex;
       }
+
       /* .hero-img,
       .hero-content {
         max-width: 100%;
@@ -746,21 +804,25 @@ display: flex;
       .steps {
         gap: 18px;
       }
+
       .footer-main {
         flex-direction: column;
         gap: 18px;
         align-items: flex-start;
       }
+
       .footer-lists {
         gap: 24px;
         margin: 18px 0 0 0;
       }
     }
+
     @media (max-width: 500px) {
       .hero {
         gap: 22px;
         padding: 30px 4vw 20px 4vw;
       }
+
       .features-section,
       .how-section,
       .faq-section,
@@ -768,15 +830,19 @@ display: flex;
       .footer {
         padding: 24px 3vw !important;
       }
+
       .footer-brand {
         max-width: 98%;
       }
+
       .cta-title {
         font-size: 1.3rem;
       }
+
       .section-title {
         font-size: 1.27rem;
       }
+
       .feature-card,
       .step-card {
         padding: 20px 10px;
@@ -784,6 +850,7 @@ display: flex;
     }
   </style>
 </head>
+
 <body class="container">
   <!-- Reuse Navbar -->
   <header class="navbar">
@@ -800,12 +867,12 @@ display: flex;
         <button class="download-btn">Download Now</button>
       </a>
     </nav>
-    
+
     <div class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" role="button" tabindex="0">
       <div></div>
       <div></div>
       <div></div>
-      
+
       <ul class="nav-links responsive" id="mobileNav">
         <a href="/" class="brand">
           <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew Logo" />
@@ -816,7 +883,7 @@ display: flex;
         <a href="/index.html#faq" data-scroll>FAQ's</a>
       </ul>
     </div>
-  
+
   </header>
 
   <!-- Main Content with Tabs -->
@@ -825,7 +892,7 @@ display: flex;
     <div class="tabs">
       <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
       <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
-      
+
     </div>
 
     <!-- Terms Content -->
@@ -853,52 +920,63 @@ display: flex;
 
       <div class="section" id="introduction">
         <h2>1. Introduction</h2>
-        <p>Welcome to SplitCrew! These Terms and Conditions (“Terms”) govern your use of our mobile application (“App”). By accessing or using the App, you agree to be bound by these Terms.</p>
+        <p>Welcome to SplitCrew! These Terms and Conditions (“Terms”) govern your use of our mobile application (“App”).
+          By accessing or using the App, you agree to be bound by these Terms.</p>
       </div>
 
       <div class="section" id="acceptance">
         <h2>2. Acceptance of Terms</h2>
-        <p>By downloading, installing, or using the App, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, please uninstall and discontinue use.</p>
+        <p>By downloading, installing, or using the App, you acknowledge that you have read, understood, and agree to be
+          bound by these Terms. If you do not agree, please uninstall and discontinue use.</p>
       </div>
 
       <div class="section" id="user-accounts">
         <h2>3. User Accounts</h2>
-        <p>To access certain features, you may be required to create an account. You are responsible for maintaining the confidentiality of your account and password and for all activities that occur under your account.</p>
+        <p>To access certain features, you may be required to create an account. You are responsible for maintaining the
+          confidentiality of your account and password and for all activities that occur under your account.</p>
       </div>
 
       <div class="section" id="use-of-app">
         <h2>4. Use of the App</h2>
-        <p>You agree to use the App only for lawful purposes and in accordance with these Terms. You may not use the App to engage in any harmful, illegal, or unauthorized activity.</p>
+        <p>You agree to use the App only for lawful purposes and in accordance with these Terms. You may not use the App
+          to engage in any harmful, illegal, or unauthorized activity.</p>
       </div>
 
       <div class="section" id="intellectual-property">
         <h2>5. Intellectual Property</h2>
-        <p>All content, trademarks, and intellectual property within the App are owned by SplitCrew or its licensors. You may not copy, reproduce, or distribute any part of the App without our permission.</p>
+        <p>All content, trademarks, and intellectual property within the App are owned by SplitCrew or its licensors.
+          You may not copy, reproduce, or distribute any part of the App without our permission.</p>
       </div>
 
       <div class="section" id="termination">
         <h2>6. Termination</h2>
-        <p>We may suspend or terminate your access to the App at any time, without prior notice or liability, for any reason whatsoever, including if you breach the Terms.</p>
+        <p>We may suspend or terminate your access to the App at any time, without prior notice or liability, for any
+          reason whatsoever, including if you breach the Terms.</p>
       </div>
 
       <div class="section" id="limitation-liability">
         <h2>7. Limitation of Liability</h2>
-        <p>SplitCrew is provided “as is” and without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. In no event shall we be liable for any damages arising from your use of the App.</p>
+        <p>SplitCrew is provided “as is” and without warranties of any kind. We do not guarantee that the App will be
+          error-free or uninterrupted. In no event shall we be liable for any damages arising from your use of the App.
+        </p>
       </div>
 
       <div class="section" id="third-party-links">
         <h2>8. Third-Party Links</h2>
-        <p>The App may contain links to third-party websites or services that are not owned or controlled by SplitCrew. We are not responsible for the content, privacy policies, or practices of any third-party sites.</p>
+        <p>The App may contain links to third-party websites or services that are not owned or controlled by SplitCrew.
+          We are not responsible for the content, privacy policies, or practices of any third-party sites.</p>
       </div>
 
       <div class="section" id="changes-to-terms">
         <h2>9. Changes to Terms</h2>
-        <p>We reserve the right to update or modify these Terms at any time. Continued use of the App after changes are posted constitutes your acceptance of the revised Terms.</p>
+        <p>We reserve the right to update or modify these Terms at any time. Continued use of the App after changes are
+          posted constitutes your acceptance of the revised Terms.</p>
       </div>
 
       <div class="section" id="contact-us">
         <h2>10. Contact Us</h2>
-        <p>If you have any questions or concerns about these Terms, please contact us at <a href="mailto:contact@actimize.in">contact@actimize.in</a></p>
+        <p>If you have any questions or concerns about these Terms, please contact us at <a
+            href="mailto:contact@actimize.in">contact@actimize.in</a></p>
       </div>
     </div>
 
@@ -933,7 +1011,7 @@ display: flex;
           <li><strong>Expense Data:</strong> Details of expenses you enter (amounts, notes, group members).</li>
           <li><strong>Chat Data:</strong> Messages shared within groups or friends list.</li>
           <li><strong>Device Information:</strong> Basic device details to improve app performance.</li>
-      </ul>
+        </ul>
       </div>
 
       <div class="section" id="accept">
@@ -943,7 +1021,7 @@ display: flex;
           <li>To provide and improve SplitCrew services.</li>
           <li>To send you notifications about updates, settlements, and reminders.</li>
           <li>To maintain a safe and user-friendly environment.</li>
-      </ul>
+        </ul>
       </div>
 
       <div class="section" id="user">
@@ -952,7 +1030,7 @@ display: flex;
         <ul>
           <li>We <strong>do NOT</strong> sell or share your data with third parties.</li>
           <li>Data is shared only within your group or friends in the app, as intended by the features.</li>
-      </ul>
+        </ul>
       </div>
 
       <div class="section" id="use">
@@ -961,7 +1039,7 @@ display: flex;
         <ul>
           <li>We use secure storage and encryption to protect your data.</li>
           <li>While we strive to safeguard your data, no system is 100% secure.</li>
-      </ul>
+        </ul>
       </div>
 
       <div class="section" id="intellectual">
@@ -970,7 +1048,7 @@ display: flex;
         <ul>
           <li>You can edit or delete your expenses and personal data anytime within the app.</li>
           <li>If you wish to permanently delete your account, please contact us.</li>
-      </ul>
+        </ul>
       </div>
 
       <div class="section" id="termination">
@@ -979,7 +1057,7 @@ display: flex;
         <ul>
           <li>SplitCrew is not intended for children under 13.</li>
           <li>If we learn that we have collected data from a minor, we will delete it immediately.</li>
-      </ul>
+        </ul>
       </div>
 
       <div class="section" id="limitation">
@@ -988,7 +1066,7 @@ display: flex;
         <ul>
           <li>This Privacy Policy may be updated occasionally.</li>
           <li>You will be notified of major changes through the app.</li>
-      </ul>
+        </ul>
       </div>
 
       <div class="section" id="third-party">
@@ -1010,7 +1088,8 @@ display: flex;
   </main>
 
   <!-- Back to Top Button -->
-  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top"> <img src="/assets/images/backtotop.svg" ></button>
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top"> <img
+      src="/assets/images/backtotop.svg"></button>
 
   <!-- Reuse Footer -->
   <footer class="footer">
@@ -1023,11 +1102,12 @@ display: flex;
         <div class="footer-tagline">
           Simplifying group expenses and personal finance, one split at a time.
         </div>
-        <a href="https://play.google.com/store/apps/details?id=com.mantenasyam.Splitcrewapp" target="_blank" rel="noopener noreferrer">
-        <button class="footer-btn">
-          Download on 
-          <img src="/assets/images/download.png"  class="download-arrow"> Play Store
-        </button>
+        <a href="https://play.google.com/store/apps/details?id=com.mantenasyam.Splitcrewapp" target="_blank"
+          rel="noopener noreferrer">
+          <button class="footer-btn">
+            Download on
+            <img src="/assets/images/download.png" class="download-arrow"> Play Store
+          </button>
         </a>
       </div>
       <div class="footer-lists">
@@ -1056,22 +1136,25 @@ display: flex;
               </a>
               <span class="tooltiptext">splitcrew@outlook.com</span>
             </li>
-            <li><a href="https://www.linkedin.com/in/splitcrew/"target="blank" ><span class="iconify footer-icon" data-icon="entypo-social:linkedin-with-circle"></span> LinkedIn</a></li>
-            <li><a href="https://www.instagram.com/split.crew/" target="blank"><span class="iconify footer-icon" data-icon="entypo-social:instagram-with-circle"></span> Instagram</a></li>
-            <li><a href="#" ><span class="iconify footer-icon" data-icon="entypo-social:facebook-with-circle"></span> Facebook</a></li>
+            <li><a href="https://www.linkedin.com/in/splitcrew/" target="blank"><span class="iconify footer-icon"
+                  data-icon="entypo-social:linkedin-with-circle"></span> LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/split.crew/" target="blank"><span class="iconify footer-icon"
+                  data-icon="entypo-social:instagram-with-circle"></span> Instagram</a></li>
+            <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:facebook-with-circle"></span>
+                Facebook</a></li>
           </ul>
         </div>
       </div>
     </div>
-  
+
     <div class="footer-bottom">
       <div class="footer-product">
-        A Product of 
+        A Product of
         <span>
-        <img src="/assets/images/actimizelogo.png" alt="Actimize Logo" style="height:18px;">
-        <a href="https://actimize.in/"target="blank" style="text-decoration: none;">
-          <span>Actimize Software Solutions</span>
-        </a>
+          <img src="/assets/images/actimizelogo.png" alt="Actimize Logo" style="height:18px;">
+          <a href="https://actimize.in/" target="blank" style="text-decoration: none;">
+            <span>Actimize Software Solutions</span>
+          </a>
         </span>
       </div>
       <div class="footer-copyright">
@@ -1081,7 +1164,7 @@ display: flex;
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       // Highlight current page in nav
       const currentPath = window.location.pathname.split('/').pop();
       if (currentPath === 'terms.html') {
@@ -1112,62 +1195,62 @@ display: flex;
         });
       });
 
-     // Handle initial page load with hash
-const hash = window.location.hash.substring(1); // remove '#'
-if (hash === 'terms') {
-  switchTab('terms');
-} else {
-  switchTab('privacy');
-}
+      // Handle initial page load with hash
+      const hash = window.location.hash.substring(1); // remove '#'
+      if (hash === 'terms') {
+        switchTab('terms');
+      } else {
+        switchTab('privacy');
+      }
 
-// Clean the URL (remove #privacy or #terms)
-if (hash) {
-  history.replaceState(null, null, '/privacy');
-}
+      // Clean the URL (remove #privacy or #terms)
+      if (hash) {
+        history.replaceState(null, null, '/privacy');
+      }
 
-// Handle browser back/forward
-window.addEventListener('popstate', (e) => {
-  const tab = e.state?.tab || 'privacy';
-  switchTab(tab);
-});
+      // Handle browser back/forward
+      window.addEventListener('popstate', (e) => {
+        const tab = e.state?.tab || 'privacy';
+        switchTab(tab);
+      });
 
     });
-      // Force navigation for product links (in case of weird behavior)
-  document.querySelectorAll('.nav-links a, .footer-list a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && href.startsWith('index.html')) {
-      link.addEventListener('click', function(e) {
-        // Let the browser handle it normally — do NOT preventDefault!
-        // But ensure it's treated as a full navigation
-        window.location.href = href;
-      });
-    }
-  });
+    // Force navigation for product links (in case of weird behavior)
+    document.querySelectorAll('.nav-links a, .footer-list a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('index.html')) {
+        link.addEventListener('click', function (e) {
+          // Let the browser handle it normally — do NOT preventDefault!
+          // But ensure it's treated as a full navigation
+          window.location.href = href;
+        });
+      }
+    });
 
     // Smooth scroll for TOC and footer links with offset
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const targetId = this.getAttribute('href').substring(1);
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      e.preventDefault();
-      const y = targetEl.getBoundingClientRect().top + window.pageYOffset - 80; // ← offset -50px
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  });
-});
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//   anchor.addEventListener('click', function(e) {
-//     const targetId = this.getAttribute('href').substring(1);
-//     const targetEl = document.getElementById(targetId);
-//     if (targetEl) {
-//       e.preventDefault();
-//       const y = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
-//       window.scrollTo({ top: y, behavior: 'smooth' });
-//     }
-//     // If targetEl does not exist, do not preventDefault
-//   });
-// });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href').substring(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const y = targetEl.getBoundingClientRect().top + window.pageYOffset - 80; // ← offset -50px
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //   anchor.addEventListener('click', function(e) {
+    //     const targetId = this.getAttribute('href').substring(1);
+    //     const targetEl = document.getElementById(targetId);
+    //     if (targetEl) {
+    //       e.preventDefault();
+    //       const y = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
+    //       window.scrollTo({ top: y, behavior: 'smooth' });
+    //     }
+    //     // If targetEl does not exist, do not preventDefault
+    //   });
+    // });
 
 
 
@@ -1189,24 +1272,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     //   });
     // });
 
-      // Hamburger toggle for mobile menu
-      document.addEventListener("DOMContentLoaded", () => {
-    const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const navLinks = document.getElementById("mobileNav"); // ← This is your mobile menu
-    const menuBackdrop = document.getElementById("menuBackdrop");
+    // Hamburger toggle for mobile menu
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const navLinks = document.getElementById("mobileNav"); // ← This is your mobile menu
+      const menuBackdrop = document.getElementById("menuBackdrop");
 
-    hamburgerBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-      menuBackdrop.classList.toggle("show");
-      hamburgerBtn.classList.toggle("active");
-    });
+      hamburgerBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+        menuBackdrop.classList.toggle("show");
+        hamburgerBtn.classList.toggle("active");
+      });
 
-    menuBackdrop.addEventListener("click", () => {
-      navLinks.classList.remove("show");
-      menuBackdrop.classList.remove("show");
-      hamburgerBtn.classList.remove("active");
+      menuBackdrop.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        menuBackdrop.classList.remove("show");
+        hamburgerBtn.classList.remove("active");
+      });
     });
-  });
   </script>
 </body>
+
 </html>

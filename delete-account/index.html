@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Delete Account - SplitCrew</title>
+  <meta name="description" content="Request deletion of your SplitCrew account and all associated data." />
+  <link rel="icon" type="image/png" href="/assets/images/Splitcrew_logo-removebg-preview.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #a259ea;
+      --secondary: #f35eb0;
+      --gray: #f5f5f5;
+      --dark: #24292f;
+      --shadow: 0 6px 32px 0 rgba(162, 89, 234, 0.15), 0 1.5px 8px 0 rgba(243, 94, 176, 0.05);
+      --gradient: linear-gradient(94.86deg, #a259ea 3.6%, #f35eb0 113.5%);
+      --gradient2: linear-gradient(180deg, #C77DFF 0%, #9D4EDD 100%);
+      --textgradient: linear-gradient(264.05deg, #FDBCEF -3.39%, #EC38BC 25.79%, #7303C0 113.3%, #03001E 113.32%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Quicksand", sans-serif;
+      background: #fff;
+      color: var(--dark);
+      min-height: 100vh;
+      line-height: 1.75;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1350px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      box-sizing: border-box;
+    }
+
+    /* --- Navbar --- */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 62px;
+      background: rgba(255 255 255 / 0.15);
+      backdrop-filter: blur(16px);
+      border-bottom: 2px solid rgba(255, 241, 255, 1);
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 1000; padding: 0 32px;
+      transition: height 0.3s ease;
+    }
+    .navbar .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: bold; font-size: 1.4rem;
+      color: var(--primary); letter-spacing: 0.5px; text-decoration: none;
+    }
+    .navbar .brand img { height: 36px; }
+    .nav-links { display: flex; align-items: center; gap: 0; }
+    .nav-links a:not(:last-child) { margin-right: 42px; }
+    .nav-links a {
+      color: #24292f; font-weight: 600; text-decoration: none;
+      padding: 6px 0; transition: color 0.2s; position: relative; user-select: none;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+    .navbar .download-btn {
+      background: var(--gradient2); border-radius: 12px; color: #fff;
+      border: none; font-weight: bold; padding: 10px 24px;
+      box-shadow: var(--shadow); cursor: pointer; transition: transform 0.1s;
+      font-size: 1rem; text-decoration: none;
+    }
+    .navbar .download-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 3px 16px 0 rgba(162, 89, 234, 0.21);
+    }
+
+    /* --- Hamburger --- */
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      cursor: pointer; width: 30px; height: 24px; gap: 5px; user-select: none;
+    }
+    .hamburger div { height: 3px; background: var(--primary); border-radius: 3px; transition: all 0.3s ease; }
+
+    #menuBackdrop {
+      display: none; position: fixed; top: 0; left: 0;
+      width: 100vw; height: 100vh; background: rgba(0,0,0,0.4);
+      z-index: 1000; opacity: 0; transition: opacity 0.3s ease;
+    }
+    #menuBackdrop.show { display: block; opacity: 1; }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-links.responsive { display: flex; }
+      .nav-links.responsive {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(255,255,255,1); backdrop-filter: blur(16px);
+        flex-direction: column; z-index: 1001;
+        transform: translateY(-105%);
+        transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+        overflow-y: auto; display: flex;
+      }
+      .nav-links.responsive .brand { font-size: 1.8rem; gap: 8px; display: flex; color: black; }
+      .nav-links.responsive.show { transform: translateX(0); }
+      .nav-links.responsive a, .nav-links.responsive .download-btn {
+        padding: 12px 20px; font-size: 1.15rem; color: var(--primary); font-weight: 700;
+        border-radius: 8px; margin: 4px 0; width: 100%; text-align: left;
+        display: block; background: none; border: none; cursor: pointer;
+        text-decoration: none; box-sizing: border-box;
+      }
+      .nav-links.responsive .download-btn {
+        background: var(--gradient2); color: white; text-align: center;
+        font-weight: bold; margin-top: 20px; padding: 12px; border-radius: 12px;
+      }
+      .nav-links.responsive a:hover, .nav-links.responsive a.active,
+      .nav-links.responsive .download-btn:hover {
+        background: var(--gradient2); color: #fff; box-shadow: var(--shadow);
+      }
+      .navbar { padding: 12px 20px; height: auto; flex-wrap: nowrap; }
+      .hamburger { display: flex; }
+      .navbar .download-btn { display: none; }
+    }
+
+    /* --- Main Content --- */
+    main { padding: 100px 5vw 60px 5vw; }
+
+    .delete-wrapper {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .delete-card {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 10px 48px rgba(162, 89, 234, 0.10), 0 2px 8px rgba(243, 94, 176, 0.06);
+      border: 1.5px solid rgba(162, 89, 234, 0.08);
+      padding: 44px 38px;
+      box-sizing: border-box;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, #f3e8ff 0%, #ede0ff 100%);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px auto;
+    }
+    .card-icon .iconify { font-size: 2rem; color: var(--primary); }
+
+    .card-header { text-align: center; margin-bottom: 30px; }
+    .card-header h1 {
+      font-size: 1.7rem; font-weight: 700; color: #222; margin: 0 0 8px 0;
+    }
+    .card-header p { color: #666; font-size: 0.95rem; margin: 0; line-height: 1.55; }
+
+    /* --- Form --- */
+    .form-group { margin-bottom: 22px; display: flex; flex-direction: column; text-align: left; }
+    .form-group label { font-weight: 600; font-size: 0.93rem; color: #333; margin-bottom: 7px; }
+
+    .phone-row { display: flex; gap: 10px; }
+    .phone-row select { width: 105px; cursor: pointer; }
+    .phone-row input { flex: 1; }
+
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 13px 15px; border-radius: 12px;
+      border: 1.5px solid #e2d9f3; font-family: "Quicksand", sans-serif;
+      font-size: 0.95rem; color: #333; background: #faf8fe;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(162, 89, 234, 0.13);
+      background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .confirm-box {
+      display: flex; gap: 12px; align-items: flex-start;
+      margin-bottom: 28px; text-align: left;
+    }
+    .confirm-box input[type="checkbox"] {
+      margin-top: 4px; width: 18px; height: 18px;
+      accent-color: var(--primary); cursor: pointer; flex-shrink: 0;
+    }
+    .confirm-box label {
+      font-size: 0.88rem; color: #555; line-height: 1.5; cursor: pointer; user-select: none;
+    }
+
+    .submit-btn {
+      width: 100%; background: var(--gradient2); color: #fff; border: none;
+      border-radius: 12px; font-weight: 700; font-size: 1.05rem;
+      padding: 15px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: var(--shadow); font-family: "Quicksand", sans-serif;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(162,89,234,0.25); }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* --- Success State --- */
+    .success-card {
+      background: #fff; border-radius: 24px;
+      box-shadow: 0 10px 48px rgba(162, 89, 234, 0.10);
+      border: 1.5px solid rgba(162, 89, 234, 0.08);
+      padding: 50px 38px; text-align: center;
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .success-icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, #d4f8e8 0%, #e6f9f2 100%);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px auto;
+    }
+    .success-icon .iconify { font-size: 2.5rem; color: #2ec4b6; }
+    .success-card h2 { font-size: 1.7rem; font-weight: 700; color: #222; margin: 0 0 12px 0; }
+    .success-card p { color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0 0 16px 0; }
+    .success-note {
+      font-size: 0.85rem; color: #3a9e8f; background: #e6f9f7;
+      padding: 12px 16px; border-radius: 10px; display: inline-block; margin-bottom: 24px;
+    }
+    .home-btn {
+      display: inline-block; background: var(--gradient2); color: white;
+      text-decoration: none; font-weight: 700; padding: 12px 30px;
+      border-radius: 12px; transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: var(--shadow);
+    }
+    .home-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(162,89,234,0.25); }
+
+    .hidden { display: none !important; }
+
+    /* --- Footer --- */
+    .footer {
+      background: linear-gradient(180deg, #fff 85%, #f4e1ff 100%);
+      border-radius: 15px 15px 0 0; margin: 24px auto 0 auto;
+      box-shadow: 0 6px 32px 0 rgba(162,89,234,0.06);
+      padding: 36px 3vw 24px 3vw; border-top: 2px solid #f4d8ff; max-width: 1280px;
+    }
+    .footer-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 36px; width: 100%; }
+    .footer-brand { min-width: 280px; max-width: 350px; display: flex; flex-direction: column; }
+    .footer-logo-row { display: flex; align-items: center; gap: 10px; margin: 0 0 8px 0; }
+    .footer-logo { height: 36px; width: 36px; }
+    .footer-title { font-weight: bold; font-size: 1.18rem; color: #a259ea; letter-spacing: 0.5px; margin: 0; }
+    .footer-tagline { color: #616161; font-size: 1rem; margin: 0 0 17px 0; line-height: 1.5; }
+    .footer-btn {
+      margin: 0; background: var(--gradient2); color: #fff; border: none;
+      border-radius: 12px; font-weight: 600; font-size: 0.95rem; padding: 12px 24px;
+      box-shadow: 0 3px 14px 0 rgba(162,89,234,0.1); cursor: pointer;
+      display: inline-flex; align-items: center; max-width: 80%;
+    }
+    .download-arrow { height: 15px; width: auto; vertical-align: middle; padding: 0 5px; }
+    .footer-lists { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex: 1; }
+    .footer-list { display: flex; flex-direction: column; align-items: flex-start; }
+    .footer-list h5 { font-size: 1.08rem; color: #502e88; font-weight: 700; margin: 0 0 12px 0; padding: 0; }
+    .footer-list ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+    .footer-list a { color: #333; text-decoration: none; font-size: 1.02rem; transition: color 0.2s; display: flex; align-items: center; gap: 7px; }
+    .footer-list a:hover { color: #a259ea; }
+    .footer-icon { color: #a259ea; font-size: 1.8rem; margin-right: 3px; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1.5px solid #eabeff36; padding-top: 16px; font-size: 0.96rem;
+      color: #444; max-width: 1200px; margin: 24px auto 0 auto; user-select: none;
+    }
+    .footer-product { font-weight: 400; display: flex; }
+    .footer-product span { color: var(--primary); font-weight: 600; margin-left: 5px; display: flex; align-items: center; }
+    .footer-copyright { text-align: right; }
+    .tooltip { position: relative; display: inline-block; }
+    .tooltip .tooltiptext {
+      visibility: hidden; width: 170px; background-color: #555; color: #fff;
+      text-align: center; border-radius: 5px; padding: 5px 0; position: absolute;
+      z-index: 1; bottom: 125%; left: 50%; margin-left: -80px; opacity: 0; transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+
+    @media (max-width: 900px) {
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 32px; }
+      .footer-lists { flex-direction: column; width: 100%; gap: 24px; }
+      .footer-brand { min-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      main { padding: 85px 4vw 40px 4vw; }
+      .delete-card, .success-card { padding: 28px 18px; }
+      .card-header h1, .success-card h2 { font-size: 1.4rem; }
+      .phone-row { flex-direction: column; }
+      .phone-row select { width: 100%; }
+      .footer { padding: 22px 2vw 12px 2vw; border-radius: 10px 10px 0 0; max-width: 100vw; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .footer-copyright { text-align: center; }
+      .footer-product { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body class="container">
+  <header class="navbar">
+    <a href="/" class="brand">
+      <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew Logo" />
+      <span>SplitCrew</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="/index.html#features" data-scroll>Features</a>
+      <a href="/index.html#how" data-scroll>How it works?</a>
+      <a href="/index.html#faq" data-scroll>FAQ's</a>
+      <a href="https://play.google.com/store/apps/details?id=com.mantenasyam.Splitcrewapp" target="_blank">
+        <button class="download-btn">Download Now</button>
+      </a>
+    </nav>
+
+    <div class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" role="button" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+
+      <ul class="nav-links responsive" id="mobileNav">
+        <a href="/" class="brand">
+          <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew Logo" />
+          <span>SplitCrew</span>
+        </a>
+        <a href="/index.html#features" data-scroll>Features</a>
+        <a href="/index.html#how" data-scroll>How it works?</a>
+        <a href="/index.html#faq" data-scroll>FAQ's</a>
+      </ul>
+    </div>
+  </header>
+
+  <div id="menuBackdrop"></div>
+
+  <main>
+    <div class="delete-wrapper">
+
+      <!-- Delete Account Form -->
+      <div class="delete-card" id="deleteCard">
+        <div class="card-header">
+          <div class="card-icon">
+            <span class="iconify" data-icon="material-symbols:shield-lock-outline"></span>
+          </div>
+          <h1>Delete Your Account</h1>
+          <p>We're sorry to see you go. Please verify your account details below to submit a deletion request.</p>
+        </div>
+
+        <form id="deleteForm">
+          <div class="form-group">
+            <label for="phoneNumber">Registered Phone Number</label>
+            <div class="phone-row">
+              <select id="countryCode" required>
+                <option value="+91">+91 (IN)</option>
+                <option value="+1">+1 (US)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+61">+61 (AU)</option>
+                <option value="+971">+971 (AE)</option>
+              </select>
+              <input type="tel" id="phoneNumber" placeholder="Enter phone number" pattern="[0-9]{8,12}" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Associated Email Address</label>
+            <input type="email" id="email" placeholder="Enter email address" required />
+          </div>
+
+          <div class="form-group">
+            <label for="reason">Reason for Deletion</label>
+            <select id="reason" required>
+              <option value="" disabled selected>Select a reason</option>
+              <option value="privacy">Privacy / Data concerns</option>
+              <option value="not-used">No longer using SplitCrew</option>
+              <option value="bugs">Technical issues / crashes</option>
+              <option value="other">Other (please specify below)</option>
+            </select>
+          </div>
+
+          <div class="form-group hidden" id="otherReasonGroup">
+            <label for="otherReason">Please specify your reason</label>
+            <textarea id="otherReason" placeholder="Let us know how we can improve..."></textarea>
+          </div>
+
+          <div class="confirm-box">
+            <input type="checkbox" id="confirmDelete" required />
+            <label for="confirmDelete">
+              I understand that deleting my account is <strong>permanent</strong> and cannot be undone. All groups, expenses, settlements, and data will be permanently removed.
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            Confirm Account Deletion
+          </button>
+        </form>
+      </div>
+
+      <!-- Success State -->
+      <div class="success-card hidden" id="successCard">
+        <div class="success-icon">
+          <span class="iconify" data-icon="material-symbols:check-circle-rounded"></span>
+        </div>
+        <h2>Request Submitted</h2>
+        <p>Your account deletion request has been received. Our team will verify your details and process the deletion within <strong>7 business days</strong>.</p>
+        <div class="success-note">
+          A confirmation email will be sent to your registered address.
+        </div>
+        <br />
+        <a href="/" class="home-btn">Back to Home</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="/assets/images/Splitcrew_logo.png" alt="SplitCrew" class="footer-logo" />
+          <span class="footer-title">SplitCrew</span>
+        </div>
+        <div class="footer-tagline">Simplifying group expenses and personal finance, one split at a time.</div>
+        <a href="https://play.google.com/store/apps/details?id=com.mantenasyam.Splitcrewapp" target="_blank" rel="noopener noreferrer">
+          <button class="footer-btn">Download on <img src="/assets/images/download.png" class="download-arrow"> Play Store</button>
+        </a>
+      </div>
+      <div class="footer-lists">
+        <div class="footer-list">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/index.html#features">Features</a></li>
+            <li><a href="/index.html#how">How it Works?</a></li>
+            <li><a href="/index.html#faq">FAQ's</a></li>
+          </ul>
+        </div>
+        <div class="footer-list">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacy#privacy">Privacy Policy</a></li>
+            <li><a href="/privacy#terms">Terms &amp; Conditions</a></li>
+            <li><a href="/delete-account">Delete Account</a></li>
+          </ul>
+        </div>
+        <div class="footer-list footer-connect">
+          <h5>Connect</h5>
+          <ul>
+            <li class="tooltip">
+              <a href="mailto:splitcrew@outlook.com">
+                <span class="iconify footer-icon" data-icon="icomoon-free:mail4"></span> Contact Us
+              </a>
+              <span class="tooltiptext">splitcrew@outlook.com</span>
+            </li>
+            <li><a href="https://www.linkedin.com/in/splitcrew/" target="_blank"><span class="iconify footer-icon" data-icon="entypo-social:linkedin-with-circle"></span> LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/split.crew/" target="_blank"><span class="iconify footer-icon" data-icon="entypo-social:instagram-with-circle"></span> Instagram</a></li>
+            <li><a href="#"><span class="iconify footer-icon" data-icon="entypo-social:facebook-with-circle"></span> Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-product">
+        A Product of
+        <span>
+          <img src="/assets/images/actimizelogo.png" alt="Actimize Logo" style="height:18px;">
+          <a href="https://actimize.in/" target="_blank" style="text-decoration: none;"><span>Actimize Software Solutions</span></a>
+        </span>
+      </div>
+      <div class="footer-copyright">&copy; 2025 Actimize Software Solutions. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Hamburger menu
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const navLinks = document.getElementById("mobileNav");
+      const menuBackdrop = document.getElementById("menuBackdrop");
+
+      hamburgerBtn.addEventListener("click", (e) => {
+        if (e.target.closest('#mobileNav')) return;
+        navLinks.classList.toggle("show");
+        menuBackdrop.classList.toggle("show");
+        hamburgerBtn.classList.toggle("active");
+      });
+
+      menuBackdrop.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        menuBackdrop.classList.remove("show");
+        hamburgerBtn.classList.remove("active");
+      });
+
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+          menuBackdrop.classList.remove("show");
+          hamburgerBtn.classList.remove("active");
+        });
+      });
+
+      // Reason toggle
+      const reasonSelect = document.getElementById("reason");
+      const otherGroup = document.getElementById("otherReasonGroup");
+      const otherInput = document.getElementById("otherReason");
+
+      reasonSelect.addEventListener("change", function () {
+        if (this.value === "other") {
+          otherGroup.classList.remove("hidden");
+          otherInput.setAttribute("required", "required");
+        } else {
+          otherGroup.classList.add("hidden");
+          otherInput.removeAttribute("required");
+        }
+      });
+
+      // Form submit
+      const form = document.getElementById("deleteForm");
+      const deleteCard = document.getElementById("deleteCard");
+      const successCard = document.getElementById("successCard");
+      const submitBtn = document.getElementById("submitBtn");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting Request...";
+
+        setTimeout(() => {
+          deleteCard.classList.add("hidden");
+          successCard.classList.remove("hidden");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 1200);
+      });
+    });
+  </script>
+</body>
+
+</html>
